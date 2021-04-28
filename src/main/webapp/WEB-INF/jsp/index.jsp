@@ -18,8 +18,8 @@
         <h1 style="color:red">${messsage}</h1>
         
         <ul>
-            <c:forEach items="${categories}" var="cat">
-                <li>${cat.id} - ${cat.name}</li>
+            <c:forEach items="${NghiepVu}" var="nghiepvu">
+                <li>${nghiepvu.idNghiepVu} - ${nghiepvu.tenNghiepVu}</li>
             </c:forEach>
             
         </ul>

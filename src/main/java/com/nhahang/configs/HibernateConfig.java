@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 /**
  *
@@ -24,38 +24,47 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 @Configuration
 @PropertySource(value="classpath:database.properties")
 public class HibernateConfig {
+
     @Autowired
     private Environment env;
-    
+
     @Bean
-    public LocalSessionFactoryBean getSessionFactory(){
+    public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
         factory.setPackagesToScan("com.nhahang.pojo");
         factory.setDataSource(dataSource());
+
         return factory;
     }
-    
+
     @Bean
-    public DataSource dataSource(){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("hibernate.connection.driverClass"));
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource
+                = new DriverManagerDataSource();
+        dataSource.setDriverClassName(
+                env.getProperty("hibernate.connection.driverClass"));
         dataSource.setUrl(env.getProperty("hibernate.connection.url"));
-        dataSource.setUsername(env.getProperty("hibernate.connection.username"));
-        dataSource.setPassword(env.getProperty("hibernate.connection.password"));
+        dataSource.setUsername(
+                env.getProperty("hibernate.connection.username"));
+        dataSource.setPassword(
+                env.getProperty("hibernate.connection.password"));
         return dataSource;
     }
-    
-    public Properties getProps(){
+
+    public Properties getProps() {
         Properties props = new Properties();
         props.setProperty(AvailableSettings.DIALECT, env.getProperty("hibernate.dialect"));
         props.setProperty(AvailableSettings.SHOW_SQL, env.getProperty("hibernate.showSql"));
+
         return props;
     }
-    
+
     @Bean
-    public HibernateTransactionManager transactionManager(){
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(getSessionFactory().getObject());
+    public HibernateTransactionManager transactionManager() {
+        HibernateTransactionManager transactionManager
+                = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(
+                getSessionFactory().getObject());
         return transactionManager;
     }
 }

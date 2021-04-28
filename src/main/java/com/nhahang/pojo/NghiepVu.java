@@ -5,13 +5,27 @@
  */
 package com.nhahang.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author X_X
  */
+@Entity
+@Table(name = "nghiep_vu")
 public class NghiepVu {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_nghiep_vu")
     private int idNghiepVu;
+    @Column(name = "ten_nghiep_vu")
     private String tenNghiepVu;
+    @Column(name="ghi_chu")
     private String ghiChu;
 
     /**
@@ -56,5 +70,7 @@ public class NghiepVu {
         this.ghiChu = ghiChu;
     }
     
+    
+   
     
 }
