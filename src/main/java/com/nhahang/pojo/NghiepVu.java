@@ -30,8 +30,8 @@ public class NghiepVu {
     private String tenNghiepVu;
     @Column(name="ghi_chu")
     private String ghiChu;
-    @OneToMany(mappedBy = "nghiep_vu", fetch = FetchType.EAGER)
-    private List<NghiepVu> nghiepVu;
+//    @OneToMany(mappedBy = "nghiep_vu", fetch = FetchType.EAGER)
+//    private List<NghiepVu> nghiepVu;
 
     /**
      * @return the idNghiepVu
@@ -78,17 +78,17 @@ public class NghiepVu {
     /**
      * @return the nghiepVu
      */
-    public List<NghiepVu> getNghiepVu() {
-        return nghiepVu;
-    }
+//    public List<NghiepVu> getNghiepVu() {
+//        return nghiepVu;
+//    }
 
     /**
      * @param nghiepVu the nghiepVu to set
      */
-    public void setNghiepVu(List<NghiepVu> nghiepVu) {
-        this.nghiepVu = nghiepVu;
-    }
-    
+//    public void setNghiepVu(List<NghiepVu> nghiepVu) {
+//        this.nghiepVu = nghiepVu;
+//    }
+//    
     
    
     

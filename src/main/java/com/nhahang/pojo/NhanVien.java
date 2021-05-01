@@ -29,7 +29,7 @@ public class NhanVien {
     @Column(name = "ten_nhan_vien")
     private String tenNhanVien;
     @Column(name = "id_nghiep_vu")
-    @ManyToOne
+//    @ManyToOne
     @JoinColumn(name ="id_nghiep_vu")
     private int idNghiepVu;
     @Column(name = "ghi_chu")
