@@ -5,20 +5,40 @@
  */
 package com.nhahang.pojo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+
 /**
  *
  * @author X_X
  */
-public class PhanHoi {
+@Entity
+@Table(name="phan_hoi")
+public class PhanHoi{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_phan_hoi")
     private int idPhanHoi;
+    @Column(name = "id_don_hang")
+//    JoinColumn(name = "id_don_hang")
     private int idDonHang;
+    @Column(name = "loai_phan_hoi")
     private String loaiPhanHoi;
+    @Column(name = "noi_dung")
     private String noiDung;
+    @Column(name = "ghi_chu")
     private String ghiChu;
 
     /**
      * @return the idPhanHoi
      */
+
     public int getIdPhanHoi() {
         return idPhanHoi;
     }

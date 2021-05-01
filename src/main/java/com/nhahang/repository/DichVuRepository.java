@@ -5,14 +5,15 @@
  */
 package com.nhahang.repository;
 
-import com.nhahang.pojo.NhanVien;
+import com.nhahang.pojo.DichVu;
 import java.util.List;
 
 /**
  *
  * @author X_X
  */
-public interface NhanVienRepository {
-    List<NhanVien> getNhanVien(String kw);
+public interface DichVuRepository {
+    List<DichVu> getDichVu(String kw);
+    DichVu getDichVuById(int idDichVu);
     
 }

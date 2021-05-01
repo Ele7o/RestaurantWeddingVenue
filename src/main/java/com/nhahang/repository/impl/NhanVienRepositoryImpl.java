@@ -31,7 +31,7 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
     
     @Override
     @Transactional
-    public List<NhanVien> getNhanViens(String kw){
+    public List<NhanVien> getNhanVien(String kw){
         Session session = this.sessionFactory.getObject().getCurrentSession();
         
         CriteriaBuilder builder = session.getCriteriaBuilder();
