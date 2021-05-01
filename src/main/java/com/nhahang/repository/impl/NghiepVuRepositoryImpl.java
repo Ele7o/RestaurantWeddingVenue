@@ -23,6 +23,11 @@ public class NghiepVuRepositoryImpl implements NghiepVuRepository{
         Query q = s.createQuery("From NghiepVu");
         return q.getResultList();
     }
-
+    @Override
+    @Transactional
+    public NghiepVu getNghiepVuById(int idNghiepVu){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        return s.get(NghiepVu.class,idNghiepVu);
+    }
 
 }

@@ -5,11 +5,14 @@
  */
 package com.nhahang.pojo;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +30,8 @@ public class NghiepVu {
     private String tenNghiepVu;
     @Column(name="ghi_chu")
     private String ghiChu;
+    @OneToMany(mappedBy = "nghiep_vu", fetch = FetchType.EAGER)
+    private List<NghiepVu> nghiepVu;
 
     /**
      * @return the idNghiepVu
@@ -68,6 +73,20 @@ public class NghiepVu {
      */
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    /**
+     * @return the nghiepVu
+     */
+    public List<NghiepVu> getNghiepVu() {
+        return nghiepVu;
+    }
+
+    /**
+     * @param nghiepVu the nghiepVu to set
+     */
+    public void setNghiepVu(List<NghiepVu> nghiepVu) {
+        this.nghiepVu = nghiepVu;
     }
     
     

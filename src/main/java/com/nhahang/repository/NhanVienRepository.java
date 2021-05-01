@@ -13,8 +13,6 @@ import java.util.List;
  * @author X_X
  */
 public interface NhanVienRepository {
-    List<NhanVien> getNhanVien(String kw);
-    boolean deleteNhanVien(int idNhanVien);
-    boolean addOrUpdateNhanVien(NhanVien nhanvien);
-    NhanVien getNhanVienById(int idNhanVien);
+    List<NhanVien> getNhanViens(String kw);
+    
 }

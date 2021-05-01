@@ -16,5 +16,9 @@ public class NghiepVuServiceImpl implements NghiepVuService {
     public List<NghiepVu> getNghiepVu(){
         return this.nghiepVuRepository.getNghiepVu();
     }
+    @Override
+    public NghiepVu getNghiepVuById(int idNghiepVu){
+        return this.nghiepVuRepository.getNghiepVuById(idNghiepVu);
+    }
 
 }
