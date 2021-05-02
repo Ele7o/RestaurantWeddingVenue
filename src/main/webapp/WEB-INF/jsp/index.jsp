@@ -13,6 +13,7 @@
       th{
           height: 300px;
           text-align: center;
+          vertical-align: middle;
       }
 </style>
 
