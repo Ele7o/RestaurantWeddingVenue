@@ -5,6 +5,10 @@
  */
 package com.nhahang.service.impl;
 
+import com.nhahang.pojo.NhanVien;
+import com.nhahang.repository.NhanVienRepository;
+import com.nhahang.service.NhanVienService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,27 @@ import org.springframework.stereotype.Service;
  * @author X_X
  */
 @Service
-public class NhanVienServiceImpl {
-//    @Autowired
+public class NhanVienServiceImpl implements NhanVienService{
+    @Autowired
+    private NhanVienRepository nhanVienRepository;
+    
+    @Override
+    public List<NhanVien> getNhanViens(String kw){
+        return this.nhanVienRepository.getNhanViens(kw);
+    }
+
+    @Override
+    public boolean deleteNhanVien(int idNhanVien) {
+       return this.nhanVienRepository.deleteNhanVien(idNhanVien);
+    }
+
+    @Override
+    public boolean addOrUpdateNhanVien(NhanVien nhanVien) {
+       return this.nhanVienRepository.addOrUpdateNhanVien(nhanVien);
+    }
+
+    @Override
+    public NhanVien getNhanVienById(int idNhanVien) {
+        return this.nhanVienRepository.getNhanVienById(idNhanVien);
+    }
 }

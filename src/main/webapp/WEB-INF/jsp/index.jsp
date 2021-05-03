@@ -8,7 +8,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
+<<<<<<< Updated upstream
  
+=======
+<style>
+    
+      th{
+          height: 300px;
+          text-align: center;
+          vertical-align: middle;
+      }
+</style>
+>>>>>>> Stashed changes
 
 <!doctype html>
 

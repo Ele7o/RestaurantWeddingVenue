@@ -5,14 +5,29 @@
  */
 package com.nhahang.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author X_X
  */
+@Entity
+@Table (name ="dich_vu")
 public class DichVu {
+    @Column(name="id_dich_vu")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDichVu;
+    @Column(name = "ten_dich_vu")
     private String tenDichVu;
+    @Column (name = "gia_dich_vu")
     private double gia;
+    @Column (name ="ghi_chu")
     private String ghiChu;
 
     /**

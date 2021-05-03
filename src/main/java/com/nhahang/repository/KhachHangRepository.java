@@ -5,16 +5,14 @@
  */
 package com.nhahang.repository;
 
-import com.nhahang.pojo.NhanVien;
+import com.nhahang.pojo.KhachHang;
 import java.util.List;
 
 /**
  *
  * @author X_X
  */
-public interface NhanVienRepository {
-    List<NhanVien> getNhanViens(String kw);
-    boolean deleteNhanVien(int idNhanVien);
-    boolean addOrUpdateNhanVien(NhanVien nhanVien);
-    NhanVien getNhanVienById(int idNhanVien);
+public interface KhachHangRepository {
+    List<KhachHang> getKhachHang();
+    KhachHang getKhachHangById(int idKhachHang);
 }

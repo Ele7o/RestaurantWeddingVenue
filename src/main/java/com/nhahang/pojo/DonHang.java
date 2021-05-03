@@ -6,16 +6,31 @@
 package com.nhahang.pojo;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author X_X
  */
+@Entity
+@Table(name="don_hang")
 public class DonHang {
+    @Column(name="id_don_hang")
+    @Id
+    @GeneratedValue ( strategy = GenerationType.IDENTITY)
     private int idDonHang;
+    @Column(name="id_khach_hang")
     private int idKhachHang;
+    @Column(name="id_sach")
     private int idSanh;
+    @Column(name="ngay_to_chuc")
     private Date ngayToChuc;
+    @Column(name="ghi_chu")
     private String ghiChu;
 
     /**

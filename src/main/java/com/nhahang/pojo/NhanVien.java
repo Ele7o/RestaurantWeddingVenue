@@ -5,6 +5,7 @@
  */
 package com.nhahang.pojo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,17 +22,23 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="nhan_vien")
-public class NhanVien {
+public class NhanVien implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_nhan_vien")
     private int idNhanVien;
     @Column(name = "ten_nhan_vien")
     private String tenNhanVien;
+<<<<<<< Updated upstream
     @Column(name = "id_nghiep_vu")
     @ManyToOne
     @JoinColumn(name ="id_nghiep_vu")
     private int idNghiepVu;
+=======
+    @ManyToOne
+    @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")
+    private NghiepVu nghiepVus;
+>>>>>>> Stashed changes
     @Column(name = "ghi_chu")
     private String ghiChu;
 
@@ -64,17 +71,17 @@ public class NhanVien {
     }
 
     /**
-     * @return the idNghiepVu
+     * @return the nghiepVu
      */
-    public int getIdNghiepVu() {
-        return idNghiepVu;
+    public NghiepVu getNghiepVu() {
+        return nghiepVus;
     }
 
     /**
-     * @param idNghiepVu the idNghiepVu to set
+     * @param nghiepVu the nghiepVu to set
      */
-    public void setIdNghiepVu(int idNghiepVu) {
-        this.idNghiepVu = idNghiepVu;
+    public void setNghiepVu(NghiepVu nghiepVu) {
+        this.nghiepVus = nghiepVu;
     }
 
     /**
@@ -90,6 +97,10 @@ public class NhanVien {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+    
+    
+    
+    
     
     
 }

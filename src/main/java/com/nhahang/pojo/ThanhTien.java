@@ -5,14 +5,24 @@
  */
 package com.nhahang.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author X_X
  */
+//@Entity
+//@Table(name="thanh_tien")
 public class ThanhTien {
+    @Column(name="id_don_hang")
     private int idDonHang;
+    @Column(name="id_mon")
     private int idMon;
+    @Column(name="so_luong")
     private int soLuong;
+    @Column(name="ghi_chu")
     private String ghiChu;
 
     /**
