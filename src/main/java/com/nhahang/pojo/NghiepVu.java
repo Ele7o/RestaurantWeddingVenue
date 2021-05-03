@@ -31,13 +31,13 @@ public class NghiepVu implements Serializable{
     private String tenNghiepVu;
     @Column(name="ghi_chu")
     private String ghiChu;
-<<<<<<< Updated upstream
-    @OneToMany(mappedBy = "nghiep_vu", fetch = FetchType.EAGER)
-    private List<NghiepVu> nghiepVu;
-=======
+
+//    @OneToMany(mappedBy = "nghiep_vu", fetch = FetchType.EAGER)
+//    private List<NghiepVu> nghiepVu;
+
     @OneToMany(mappedBy = "nghiepVus", fetch = FetchType.EAGER)
     private List<NghiepVu> nghiepVus;
->>>>>>> Stashed changes
+
 
     /**
      * @return the idNghiepVu
@@ -84,32 +84,31 @@ public class NghiepVu implements Serializable{
     /**
      * @return the nghiepVus
      */
-<<<<<<< Updated upstream
-    public List<NghiepVu> getNghiepVu() {
-        return nghiepVu;
-=======
+
+//    public List<NghiepVu> getNghiepVu() {
+//        return nghiepVu;
+//    }
     public List<NghiepVu> getNghiepVus() {
         return nghiepVus;
->>>>>>> Stashed changes
+
     }
 
     /**
      * @param nghiepVus the nghiepVus to set
      */
-<<<<<<< Updated upstream
-    public void setNghiepVu(List<NghiepVu> nghiepVu) {
-        this.nghiepVu = nghiepVu;
-    }
-    
-=======
+
+//    public void setNghiepVu(List<NghiepVu> nghiepVu) {
+//        this.nghiepVu = nghiepVu;
+//    }
+//    
+
     public void setNghiepVus(List<NghiepVu> nghiepVus) {
         this.nghiepVus = nghiepVus;
     }
     
     
     
->>>>>>> Stashed changes
-    
+
    
     
 }

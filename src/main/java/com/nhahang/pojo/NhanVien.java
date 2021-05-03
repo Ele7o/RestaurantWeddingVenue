@@ -29,16 +29,15 @@ public class NhanVien implements Serializable{
     private int idNhanVien;
     @Column(name = "ten_nhan_vien")
     private String tenNhanVien;
-<<<<<<< Updated upstream
-    @Column(name = "id_nghiep_vu")
-    @ManyToOne
-    @JoinColumn(name ="id_nghiep_vu")
-    private int idNghiepVu;
-=======
+
+//    @ManyToOne
+//    @JoinColumn(name ="id_nghiep_vu")
+//    private int idNghiepVu;
+
     @ManyToOne
     @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")
     private NghiepVu nghiepVus;
->>>>>>> Stashed changes
+
     @Column(name = "ghi_chu")
     private String ghiChu;
 
