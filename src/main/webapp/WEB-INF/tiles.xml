@@ -14,6 +14,13 @@
         <put-attribute name="title" value="Trang chu" />
         <put-attribute name="content" value="/WEB-INF/jsp/index.jsp" />
     </definition>
-    
+    <definition name="nhanvien" extends="baseLayout">
+        <put-attribute name="title" value="Nhan vien"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nhanvien.jsp"/>
+    </definition>
+    <definition name="nghiepvu" extends="baseLayout">
+        <put-attribute name="title" value="Nghiep vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nghiepvu.jsp"/>
+    </definition>
    
 </tiles-definitions>

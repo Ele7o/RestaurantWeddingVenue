@@ -33,8 +33,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @ControllerAdvice
 public class HomeController {
       
-       @RequestMapping("/")
-        public String index(Model model, @RequestParam(name = "idNghiepVu", required = false) String idNghiepVu) {
+   @Autowired
+    private NhanVienService nhanVienService;
+    @Autowired
+    private NghiepVuService nghiepVuService;
+  
+    @RequestMapping("/")
+    public String addView(Model model, @RequestParam(name="idNghiepVu",required = false) String idNghiepVu){
+        if(idNghiepVu == null){
+            model.addAttribute("nhanviens",this.nhanVienService.getNhanViens(""));
+        }
+        else
+        {
+            model.addAttribute("nhanviens",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanViens());
+        }
         
         return "index";
     }
