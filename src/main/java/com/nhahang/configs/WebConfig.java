@@ -44,13 +44,13 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
-//    @Bean
-//    public MessageSource messageSource() {
-//        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-//        source.setBasename("messages");
-//
-//        return source;
-//    }
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("messages");
+
+        return source;
+    }
 
 //    @Bean(name = "validator")
 //    public LocalValidatorFactoryBean validator() {
@@ -59,7 +59,7 @@ public class WebConfig implements WebMvcConfigurer {
 //        bean.setValidationMessageSource(messageSource());
 //        return bean;
 //    }
-
+//
 //    @Override
 //    public Validator getValidator() {
 //        return validator();

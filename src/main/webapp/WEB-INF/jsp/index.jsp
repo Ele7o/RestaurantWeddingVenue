@@ -40,7 +40,7 @@
     <h1 >DAU CAT MOI</h1>
     <table  class="table table-bordered" style="color: white;">
         <tr>
-            <th >Quan Ly Nhan Vien</th>
+            <th><a href="<c:url value="/NghiepVu/" />">Quan Ly Nhan Vien</a></th>
             <th >Quan Ly Don Hang</th>
             <th >Quan Ly Dich Vu </th>
           
