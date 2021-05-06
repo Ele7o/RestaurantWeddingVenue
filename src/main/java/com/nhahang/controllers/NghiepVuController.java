@@ -7,6 +7,9 @@ package com.nhahang.controllers;
 
 import com.nhahang.service.NghiepVuService;
 import com.nhahang.service.NhanVienService;
+
+
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +44,7 @@ public class NghiepVuController {
             model.addAttribute("nhanvien",this.nhanVienService.getNhanViens(""));
         }
         else{
-            model.addAttribute("nhanvien",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanViens());
+            model.addAttribute("nhanvien",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanVien());
         }
         return "nghiepvu";
     }

@@ -17,4 +17,5 @@ public interface NhanVienRepository {
     boolean deleteNhanVien(int idNhanVien);
     boolean addOrUpdateNhanVien(NhanVien nhanVien);
     NhanVien getNhanVienById(int idNhanVien);
+    
 }

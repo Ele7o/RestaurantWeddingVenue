@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -29,14 +30,17 @@ public class NhanVien implements Serializable{
     private int idNhanVien;
     @Column(name = "ten_nhan_vien")
     private String tenNhanVien;
+    @Transient
+    private int idNghiepVuForm;
 
 //    @ManyToOne
 //    @JoinColumn(name ="id_nghiep_vu")
 //    private int idNghiepVu;
 
     @ManyToOne
-    @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")
-    private NghiepVu nghiepVus;
+    @JoinColumn(name ="id_nghiep_vu")
+//    @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")
+    private NghiepVu nghiepVu;
 
     @Column(name = "ghi_chu")
     private String ghiChu;
@@ -73,14 +77,14 @@ public class NhanVien implements Serializable{
      * @return the nghiepVu
      */
     public NghiepVu getNghiepVu() {
-        return nghiepVus;
+        return nghiepVu;
     }
 
     /**
      * @param nghiepVu the nghiepVu to set
      */
     public void setNghiepVu(NghiepVu nghiepVu) {
-        this.nghiepVus = nghiepVu;
+        this.nghiepVu = nghiepVu;
     }
 
     /**
@@ -96,8 +100,14 @@ public class NhanVien implements Serializable{
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
-    
-    
+
+    public int getIdNghiepVuForm() {
+        return idNghiepVuForm;
+    }
+
+    public void setIdNghiepVuForm(int idNghiepVuForm) {
+        this.idNghiepVuForm = idNghiepVuForm;
+    }
     
     
     

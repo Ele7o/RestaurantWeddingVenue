@@ -11,6 +11,7 @@ package com.nhahang.controllers;
 import com.nhahang.pojo.NghiepVu;
 import com.nhahang.service.NghiepVuService;
 import com.nhahang.service.NhanVienService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,15 +38,18 @@ public class HomeController {
     private NhanVienService nhanVienService;
     @Autowired
     private NghiepVuService nghiepVuService;
-  
+     @ModelAttribute
+    public void addAttributes(Model model, HttpSession session) {
+        model.addAttribute("nghiepvu", this.nghiepVuService.getNghiepVu());
+    }
     @RequestMapping("/")
     public String addView(Model model, @RequestParam(name="idNghiepVu",required = false) String idNghiepVu){
         if(idNghiepVu == null){
-            model.addAttribute("nhanviens",this.nhanVienService.getNhanViens(""));
+            model.addAttribute("nhanvien",this.nhanVienService.getNhanViens(""));
         }
         else
         {
-            model.addAttribute("nhanviens",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanViens());
+            model.addAttribute("nhanvien",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanVien());
         }
         
         return "index";

@@ -34,8 +34,8 @@ public class NghiepVu implements Serializable{
 
 
 
-    @OneToMany(mappedBy = "nghiepVus", fetch = FetchType.EAGER)
-    private List<NhanVien> nhanViens;
+    @OneToMany(mappedBy = "nghiepVu", fetch = FetchType.EAGER)
+    private List<NhanVien> nhanVien;
 
 
     /**
@@ -81,19 +81,23 @@ public class NghiepVu implements Serializable{
     }
 
     /**
-     * @return the nhanViens
+     * @return the nhanVien
      */
-    public List<NhanVien> getNhanViens() {
-        return nhanViens;
+    public List<NhanVien> getNhanVien() {
+        return nhanVien;
     }
 
     /**
-     * @param nhanViens the nhanViens to set
+     * @param nhanVien the nhanVien to set
      */
-    public void setNhanViens(List<NhanVien> nhanViens) {
-        this.nhanViens = nhanViens;
+    public void setNhanVien(List<NhanVien> nhanVien) {
+        this.nhanVien = nhanVien;
     }
 
+    /**
+     * @return the nhanViens
+     */
+ 
     /**
      * @return the nghiepVus
      */

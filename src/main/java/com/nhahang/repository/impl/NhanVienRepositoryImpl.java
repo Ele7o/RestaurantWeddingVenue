@@ -6,7 +6,9 @@
 package com.nhahang.repository.impl;
 
 import com.nhahang.pojo.NhanVien;
+import com.nhahang.pojo.NghiepVu;
 import com.nhahang.repository.NhanVienRepository;
+import com.nhahang.repository.NghiepVuRepository;
 import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -29,6 +31,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class NhanVienRepositoryImpl implements NhanVienRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private NghiepVuRepository nghiepVuRepo;
     
     @Override
     @Transactional
@@ -67,7 +71,9 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
     public boolean addOrUpdateNhanVien(NhanVien nhanVien){
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
-            if(nhanVien.getIdNhanVien()>0){
+            if(nhanVien.getIdNhanVien() > 0){
+//                nhanVien.setNghiepVu();
+                nhanVien.setNghiepVu(this.nghiepVuRepo.getNghiepVuById(nhanVien.getIdNghiepVuForm()));
                 s.update(nhanVien);
             }
             else{

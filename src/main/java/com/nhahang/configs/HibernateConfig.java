@@ -33,7 +33,7 @@ public class HibernateConfig {
         LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
         factory.setPackagesToScan("com.nhahang.pojo");
         factory.setDataSource(dataSource());
-
+        factory.setHibernateProperties(getProps());
         return factory;
     }
 

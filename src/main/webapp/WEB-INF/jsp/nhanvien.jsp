@@ -23,27 +23,28 @@
                  cssClass="alert alert-danger" />
     <div class="form-group">
         <label><spring:message code="nhanvien.tenNhanVien" /></label>
-        <form:input cssClass="form-control" path="${tenNhanVien}" />
+        <form:input cssClass="form-control" path="tenNhanVien" />
     </div>
     <div class="form-group">
         <label><spring:message code="nhanvien.nghiepVu" /> </label>
-        <form:select path="${nghiepVu}" cssClass="form-control">
+        <form:select path="idNghiepVuForm" cssClass="form-control">
             <c:forEach items="${nghiepvu}" var="ngvu">
                 <c:if test="${ngvu.idNghiepVu == nhanvien.nghiepVu.idNghiepVu}">
                     <option selected value="${ngvu.idNghiepVu}">${ngvu.tenNghiepVu}</option>
+                   
                 </c:if>
                 <c:if test="${ngvu.idNghiepVu != nhanvien.nghiepVu.idNghiepVu}">
                     <option value="${ngvu.idNghiepVu}">${ngvu.tenNghiepVu}</option>
                 </c:if>
             </c:forEach>
         </form:select>
-    </div>
+   
      <div class="form-group">
         <label><spring:message code="nhanvien.ghiChu" /></label>
-        <form:input cssClass="form-control" path="${ghichu}" />
+        <form:input cssClass="form-control" path="ghiChu" />
     </div>
     <div>
-        <form:hidden path="${idNhanVien}" />
+         <form:input cssClass="form-control" path="idNhanVien" />
         <input type="submit" class="btn btn-danger" value="<spring:message code="nhanvien.submit" />" />
     </div>
             
