@@ -14,12 +14,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author X_X
  */
+@Repository
 public class KhachHangRepositoryImpl implements KhachHangRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;

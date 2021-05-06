@@ -25,7 +25,7 @@ public class DichVu {
     private int idDichVu;
     @Column(name = "ten_dich_vu")
     private String tenDichVu;
-    @Column (name = "gia_dich_vu")
+    @Column (name = "gia")
     private double gia;
     @Column (name ="ghi_chu")
     private String ghiChu;

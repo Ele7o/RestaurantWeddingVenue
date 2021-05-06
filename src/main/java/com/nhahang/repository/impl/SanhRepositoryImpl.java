@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author X_X
  */
+@Repository
 public class SanhRepositoryImpl implements SanhRepository {
     @Autowired
     private LocalSessionFactoryBean sessionFactory;

@@ -26,7 +26,7 @@ public class DonHang {
     private int idDonHang;
     @Column(name="id_khach_hang")
     private int idKhachHang;
-    @Column(name="id_sach")
+    @Column(name="id_sanh")
     private int idSanh;
     @Column(name="ngay_to_chuc")
     private Date ngayToChuc;

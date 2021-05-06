@@ -10,11 +10,13 @@ import com.nhahang.repository.SanhRepository;
 import com.nhahang.service.SanhService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author X_X
  */
+@Service
 public class SanhServiceImpl implements SanhService {
     @Autowired
     private SanhRepository sanhRepository;

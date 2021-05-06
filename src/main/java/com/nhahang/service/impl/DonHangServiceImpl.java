@@ -10,6 +10,7 @@ import com.nhahang.repository.DonHangRepository;
 import com.nhahang.service.DonHangService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author btson
  */
+@Service
 public class DonHangServiceImpl implements DonHangService{
     
     @Autowired
