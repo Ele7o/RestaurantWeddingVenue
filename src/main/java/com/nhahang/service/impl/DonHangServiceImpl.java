@@ -30,4 +30,9 @@ public class DonHangServiceImpl implements DonHangService{
     public DonHang getDonHangById(int idDonHang){
         return this.donHangRepository.getDonHangById(idDonHang);
     }
+
+    @Override
+    public boolean addOrUpdateDonHang(DonHang donHang) {
+        return this.donHangRepository.addOrUpdateDonHang(donHang);
+    }
 }

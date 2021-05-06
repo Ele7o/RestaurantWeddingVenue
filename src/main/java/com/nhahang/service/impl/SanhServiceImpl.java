@@ -28,5 +28,10 @@ public class SanhServiceImpl implements SanhService {
     public Sanh getSanhById(int idSanh) {
         return this.sanhRepository.getSanhById(idSanh); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean addOrUpdateSanh(Sanh sanh) {
+       return this.sanhRepository.addOrUpdateSanh(sanh);
+    }
     
 }

@@ -16,4 +16,5 @@ import java.util.List;
 public interface DonHangService {
     List<DonHang> getDonHangs();
     DonHang getDonHangById(int idDonHang);
+    boolean addOrUpdateDonHang(DonHang donHang);
 }

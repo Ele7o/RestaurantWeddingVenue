@@ -29,6 +29,9 @@ public class MonServiceImpl implements MonService{
     public Mon getMonById(int idMon) {
        return this.monRepository.getMonById(idMon); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+    @Override
+    public boolean addOrUpdateMon(Mon mon) {
+        return this.monRepository.addOrUpdateMon(mon);
+    }
 }

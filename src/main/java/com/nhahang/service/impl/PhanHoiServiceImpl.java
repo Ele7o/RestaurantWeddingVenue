@@ -28,5 +28,10 @@ public class PhanHoiServiceImpl implements PhanHoiService{
     public PhanHoi getPhanHoiById(int idPhanHoi) {
         return this.phanHoiRepository.getPhanHoiById(idPhanHoi); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean addOrUpdatePhanHoi(PhanHoi phanHoi) {
+        return this.phanHoiRepository.addOrUpdatePhanHoi(phanHoi);
+    }
     
 }

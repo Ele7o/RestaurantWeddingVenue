@@ -28,5 +28,10 @@ public class KhachHangServiceImpl implements KhachHangService{
     public KhachHang getKhachHangById(int idKhachHang) {
         return this.khachHangRepository.getKhachHangById(idKhachHang); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean addOrUpdateKhachHang(KhachHang khachHang) {
+        return this.khachHangRepository.addOrUpdateKhachHang(khachHang);
+    }
     
 }

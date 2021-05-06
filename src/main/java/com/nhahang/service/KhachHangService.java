@@ -15,4 +15,5 @@ import java.util.List;
 public interface KhachHangService {
     List<KhachHang> getKhachHang();
     KhachHang getKhachHangById(int idKhachHang);
+    boolean addOrUpdateKhachHang(KhachHang khachHang);
 }

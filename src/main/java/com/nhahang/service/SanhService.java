@@ -15,4 +15,5 @@ import java.util.List;
 public interface SanhService {
     List<Sanh> getSanh();
     Sanh getSanhById(int idSanh);
+    boolean addOrUpdateSanh(Sanh sanh);
 }
