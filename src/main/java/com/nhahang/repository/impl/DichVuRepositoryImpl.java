@@ -9,6 +9,7 @@ import com.nhahang.pojo.DichVu;
 import com.nhahang.repository.DichVuRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -36,6 +37,22 @@ public class DichVuRepositoryImpl implements DichVuRepository{
     public DichVu getDichVuById(int idDichVu){
         Session s  = this.sessionFactory.getObject().getCurrentSession();
         return s.get(DichVu.class, idDichVu);
+    }
+    @Override
+    @Transactional
+    public boolean addOrUpdateDichVu(DichVu dichVu){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            if(dichVu.getIdDichVu() > 0){
+                s.update(dichVu);
+            }
+            else{
+                s.save(dichVu);
+            }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
     
 }

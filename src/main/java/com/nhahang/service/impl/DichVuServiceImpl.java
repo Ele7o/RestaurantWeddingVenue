@@ -30,6 +30,10 @@ public class DichVuServiceImpl implements DichVuService{
     public DichVu getDichVuById (int idDichVu){
         return this.dichVuRepository.getDichVuById(idDichVu);
     }
+    @Override
+    public boolean addOrUpdateDichVu(DichVu dichVu){
+        return this.dichVuRepository.addOrUpdateDichVu(dichVu);
+    }
     
     
     
