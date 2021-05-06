@@ -15,4 +15,5 @@ import java.util.List;
 public interface DonHangRepository {
     List<DonHang> getDonHangs();
     DonHang getDonHangById(int idDonHang);
+    boolean addOrUpdateDonHang(DonHang donHang);
 }

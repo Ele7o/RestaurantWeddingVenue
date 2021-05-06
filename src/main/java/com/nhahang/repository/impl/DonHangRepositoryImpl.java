@@ -8,6 +8,7 @@ package com.nhahang.repository.impl;
 import com.nhahang.pojo.DonHang;
 import com.nhahang.repository.DonHangRepository;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,21 @@ public class DonHangRepositoryImpl implements DonHangRepository{
         Session s = this.sessionFactory.getObject().getCurrentSession();
         return s.get(DonHang.class, idDonHang);
         
+    }
+
+    @Override
+    public boolean addOrUpdateDonHang(DonHang donHang) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            if(donHang.getIdDonHang() > 0){
+                s.update(donHang);
+            }
+            else{
+                s.save(donHang);
+            }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

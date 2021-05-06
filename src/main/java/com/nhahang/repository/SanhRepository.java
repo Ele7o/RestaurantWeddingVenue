@@ -15,4 +15,5 @@ import java.util.List;
 public interface SanhRepository {
     List<Sanh> getSanh();
     Sanh getSanhById(int idSanh);
+    boolean addOrUpdateSanh(Sanh sanh);
 }

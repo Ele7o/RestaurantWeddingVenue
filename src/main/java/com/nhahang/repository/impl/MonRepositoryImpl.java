@@ -9,6 +9,7 @@ import com.nhahang.pojo.Mon;
 import com.nhahang.repository.MonRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -35,6 +36,22 @@ public class MonRepositoryImpl implements MonRepository {
     public Mon getMonById(int idMon) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         return s.get(Mon.class, idMon);//To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean addOrUpdateMon(Mon mon) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            if(mon.getIdMon() > 0){
+                s.update(mon);
+            }
+            else{
+                s.save(mon);
+            }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
     
 }

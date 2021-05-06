@@ -15,4 +15,5 @@ import java.util.List;
 public interface PhanHoiRepository {
     List<PhanHoi> getPhanHoi();
     PhanHoi getPhanHoiById(int idPhanHoi);
+    boolean addOrUpdatePhanHoi(PhanHoi phanHoi);
 }

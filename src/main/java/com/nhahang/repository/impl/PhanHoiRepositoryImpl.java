@@ -9,6 +9,7 @@ import com.nhahang.pojo.PhanHoi;
 import com.nhahang.repository.PhanHoiRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -35,5 +36,21 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
     public PhanHoi getPhanHoiById(int idPhanHoi) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         return s.get(PhanHoi.class, idPhanHoi); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean addOrUpdatePhanHoi(PhanHoi phanHoi) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            if(phanHoi.getIdPhanHoi() > 0){
+                s.update(phanHoi);
+            }
+            else{
+                s.save(phanHoi);
+            }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

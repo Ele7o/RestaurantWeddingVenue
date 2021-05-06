@@ -9,6 +9,7 @@ import com.nhahang.pojo.Sanh;
 import com.nhahang.repository.SanhRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -36,6 +37,22 @@ public class SanhRepositoryImpl implements SanhRepository {
     public Sanh getSanhById(int idSanh) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         return s.get(Sanh.class, idSanh);
+    }
+
+    @Override
+    public boolean addOrUpdateSanh(Sanh sanh) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            if(sanh.getIdSanh() > 0){
+                s.update(sanh);
+            }
+            else{
+                s.save(sanh);
+            }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
     
 }

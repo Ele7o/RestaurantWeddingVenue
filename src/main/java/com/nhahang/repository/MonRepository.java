@@ -15,4 +15,5 @@ import java.util.List;
 public interface MonRepository {
     List<Mon> getMon();
     Mon getMonById(int idMon);
+    boolean addOrUpdateMon(Mon mon);
 }
