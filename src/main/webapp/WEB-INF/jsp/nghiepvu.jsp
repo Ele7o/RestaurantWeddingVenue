@@ -24,9 +24,9 @@
         <td>${nvien.tenNhanVien}</td> 
         
         <td>
-            <fast-button href="#" appearance="accent" onclick="deleteNhanVien(${nvien.idNhanVien})">Xóa</fast-button>
-             <a href="<c:url value="/nhanvien" />/?idNhanVien=${nvien.idNhanVien}" 
-               class="btn btn-info">Cập nhật</a>
+            <fast-button href="#" appearance="outline"  onclick="deleteNhanVien(${nvien.idNhanVien})">Xóa</fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nhanvien" />/?idNhanVien=${nvien.idNhanVien}" 
+                           >Cập nhật</a></fast-button>
 
             
         </td>

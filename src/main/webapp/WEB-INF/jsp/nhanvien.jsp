@@ -21,11 +21,20 @@
            modelAttribute="nhanvien">
     <form:errors path="*" element="div" 
                  cssClass="alert alert-danger" />
-    <div class="form-group">
+
+    
+    <fast-card style="width: 300px; "><img src="https://via.placeholder.com/300x200/414141" />
+    <div style="padding: 0 10px 10px; color: var(--neutral-foreground-rest);">
+        <h2>Thông tin nhân viên</h2>
+        <div>
+         <form:input cssClass="form-control" path="idNhanVien" />
+        
+        </div>
+        <div class="form-group">
         <label><spring:message code="nhanvien.tenNhanVien" /></label>
         <form:input cssClass="form-control" path="tenNhanVien" />
-    </div>
-    <div class="form-group">
+        </div>
+        <div class="form-group">
         <label><spring:message code="nhanvien.nghiepVu" /> </label>
         <form:select path="idNghiepVuForm" cssClass="form-control">
             <c:forEach items="${nghiepvu}" var="ngvu">
@@ -38,14 +47,12 @@
                 </c:if>
             </c:forEach>
         </form:select>
-   
-     <div class="form-group">
+        <div class="form-group">
         <label><spring:message code="nhanvien.ghiChu" /></label>
         <form:input cssClass="form-control" path="ghiChu" />
+        </div>
+        <input type="submit" class="btn btn-danger" style="width: 100%" value="<spring:message code="nhanvien.submit" />" />
     </div>
-    <div>
-         <form:input cssClass="form-control" path="idNhanVien" />
-        <input type="submit" class="btn btn-danger" value="<spring:message code="nhanvien.submit" />" />
-    </div>
+    </fast-card>
             
 </form:form>

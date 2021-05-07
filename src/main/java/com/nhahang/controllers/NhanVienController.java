@@ -65,6 +65,6 @@ public class NhanVienController {
             model.addAttribute("erroMsg","ERROR404");
             return "nhanvien";
         }
-        return "redirect:/NghiepVu";
+        return "redirect:/NghiepVu/";
     }
 }
