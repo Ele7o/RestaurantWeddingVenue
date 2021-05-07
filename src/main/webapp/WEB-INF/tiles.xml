@@ -22,5 +22,33 @@
         <put-attribute name="title" value="Nghiep vu"/>
         <put-attribute name="content" value="/WEB-INF/jsp/nghiepvu.jsp"/>
     </definition>
+    <definition name="nghiepvulist" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach nghiep vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nghiepvulist.jsp"/>
+    </definition>
+    <definition name="dichvu" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach dich vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/dichvu.jsp"/>
+    </definition>
+    <definition name="donhang" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach don hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/donhang.jsp"/>
+    </definition>
+    <definition name="khachhang" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach khach hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/khachhang.jsp"/>
+    </definition>
+    <definition name="mon" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach cac mon an"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/mon.jsp"/>
+    </definition>
+    <definition name="phanhoi" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach cac phan hoi"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/phanhoi.jsp"/>
+    </definition>
+    <definition name="sanh" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach cac sanh"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/sanh.jsp"/>
+    </definition>
    
 </tiles-definitions>

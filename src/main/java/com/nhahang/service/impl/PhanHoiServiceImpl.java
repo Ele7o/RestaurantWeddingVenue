@@ -10,11 +10,13 @@ import com.nhahang.repository.PhanHoiRepository;
 import com.nhahang.service.PhanHoiService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author X_X
  */
+@Service
 public class PhanHoiServiceImpl implements PhanHoiService{
     @Autowired
     private PhanHoiRepository phanHoiRepository;

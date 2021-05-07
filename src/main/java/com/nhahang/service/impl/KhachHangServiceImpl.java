@@ -10,11 +10,13 @@ import com.nhahang.repository.KhachHangRepository;
 import com.nhahang.service.KhachHangService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author X_X
  */
+@Service
 public class KhachHangServiceImpl implements KhachHangService{
     @Autowired
     private KhachHangRepository khachHangRepository;

@@ -10,12 +10,14 @@ import com.nhahang.repository.MonRepository;
 import com.nhahang.service.MonService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 /**
  *
  * @author X_X
  */
+@Service
 public class MonServiceImpl implements MonService{
     @Autowired
     private MonRepository monRepository;
