@@ -13,7 +13,7 @@
 
 
 
-<table  class="table table-dark" >
+<table  class="table table-borderder" >
     <tr>
         <th>Mã đơn hàng</th>
         <th>Mã khách hàng</th>

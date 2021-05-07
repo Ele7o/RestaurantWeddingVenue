@@ -74,9 +74,11 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
             if(nhanVien.getIdNhanVien() > 0){
 //                nhanVien.setNghiepVu();
                 nhanVien.setNghiepVu(this.nghiepVuRepo.getNghiepVuById(nhanVien.getIdNghiepVuForm()));
+                
                 s.update(nhanVien);
             }
             else{
+                nhanVien.setNghiepVu(this.nghiepVuRepo.getNghiepVuById(nhanVien.getIdNghiepVuForm()));
                 s.save(nhanVien);
             }
             return true;

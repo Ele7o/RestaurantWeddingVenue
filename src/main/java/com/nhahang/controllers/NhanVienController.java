@@ -34,10 +34,15 @@ public class NhanVienController {
         
     @RequestMapping("/")
     public String addView(Model model, 
-            @RequestParam(name="idNhanVien")String idNhanVien){
+            @RequestParam(name="idNhanVien", required = false, defaultValue = "0")String idNhanVien){
         int id = Integer.parseInt(idNhanVien);
-        model.addAttribute("nhanvien", this.nhanVienService.getNhanVienById(id));
-
+//        model.addAttribute("nhanvien", this.nhanVienService.getNhanVienById(id));
+        if(id > 0){
+            model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById(id));
+        }
+        else{
+            model.addAttribute("nhanvien",new NhanVien());
+        }
         return "nhanvien";
     }    
 //    @RequestMapping("/")

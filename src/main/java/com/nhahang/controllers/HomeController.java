@@ -39,4 +39,8 @@ public class HomeController {
     public String addView(Model model){
         return "index";
     }
+    @RequestMapping("/info")
+    public String addViewInfo(Model model){
+        return "info";
+    }
 }

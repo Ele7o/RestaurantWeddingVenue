@@ -7,13 +7,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style>
+    #table{
+        color:white;
+    }
+</style>
 </br>
 <h1 >DANH SÁCH DỊCH VỤ</h1>
 
 
 
 
-<table  class="table table-dark" >
+<table id="table"  class="table table-borderder"  >
     <tr>
         <th>Mã dịch vụ</th>
         <th>Tên dịch vụ</th>

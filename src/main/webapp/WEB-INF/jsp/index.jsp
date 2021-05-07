@@ -5,7 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<a%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 
@@ -15,6 +15,7 @@
           height: 300px;
           text-align: center;
           vertical-align: middle;
+          text-decoration: none;
       }
 </style>
 
@@ -24,31 +25,26 @@
 
     <!-- Bootstrap CSS -->
     
-<style>
-    
-      th{
-          height: 300px;
-          text-align: center;
-      }
-</style>
+
 
 <!doctype html>
 
 
     <!-- Bootstrap CSS -->
     
-    <h1 >DAU CAT MOI</h1>
-    <table  class="table table-bordered" style="color: white;">
+    
+
+    <table  class="table table-bordered" style="color: #E1477E">
         <tr>
-            <th><a href="<c:url value="/NghiepVu/" />">Quan Ly Nhan Vien</a></th>
-            <th >Quan Ly Don Hang</th>
-            <th >Quan Ly Dich Vu </th>
+            <th><a style="text-decoration: none; color: #E1477E" href="<c:url value="/NghiepVu/" />">Quan Ly Nhan Vien</a></th>
+            <th ><a style="text-decoration: none; color: #E1477E" href="<c:url value="/KhachHang/" />">Quan Ly Khach Hang</th>
+            <th><a style="text-decoration: none; color: #E1477E" href="<c:url value="/DichVu/"/>">Quan Ly Dich Vu </a></th>
           
             
         </tr>
         <tr>
-            <th >Quan Ly Sanh </th>
-            <th >Quan Ly Mon </th>
-            <th >Quan Ly Phan Hoi</th>
+            <th ><a style="text-decoration: none;color: #E1477E " href="<c:url value="/Sanh/"/>">Quan Ly Sanh </a></th>
+            <th ><a style="text-decoration: none; color: #E1477E" href="<c:url value="/NghiepVuList/"/>">Quan Ly Nghiep Vu </th>
+            <th ><a style="text-decoration: none; color: #E1477E" href="<c:url value="/PhanHoi/"/>">Quan Ly Phan Hoi</th>
         </tr>
     </table>

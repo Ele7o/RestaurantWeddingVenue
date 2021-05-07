@@ -10,10 +10,19 @@
 </br>
 <h1 >DANH SÁCH NGHIỆP VỤ</h1>
 
+<style>
+    body{
+        margin:auto;
+    }
+    
+    #table{
+        color:white;
+    }
+
+</style>
 
 
-
-<table  class="table table-dark" >
+<table id="table"  class="table table-borderer"  >
     <tr>
         <th>Mã nghiệp vụ</th>
         <th>Tên nghiệp vụ</th>

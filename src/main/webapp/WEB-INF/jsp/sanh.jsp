@@ -9,11 +9,15 @@
 <!DOCTYPE html>
 </br>
 <h1 >SẢNH</h1>
+<style>
+    #table{
+        color:white;
+    }
+</style>
 
 
 
-
-<table  class="table table-dark" >
+<table id="table" class="table table-borderder" style="background-color:#181818" >
     <tr>
         <th>Mã sảnh</th>
         <th>Sức chứa</th>
@@ -23,7 +27,7 @@
     </tr>
     <c:forEach items="${sanh}" var="sanh">
     <tr id="sanh${sanh.idSanh}">
-        <td>${sanh.idPhanHoi}</td> 
+        <td>${sanh.idSanh}</td> 
         <td>${sanh.sucChua}</td>
         <td>${sanh.gia}</td> 
         <td>${sanh.tinhTrang}</td> 
