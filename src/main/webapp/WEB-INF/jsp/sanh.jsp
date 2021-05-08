@@ -24,7 +24,6 @@
         <th>Giá</th>
         <th>Tình trạng</th>
         <th>Ghi chú</th>
-        <th></th>
     </tr>
     <c:forEach items="${sanh}" var="sanh">
     <tr id="sanh${sanh.idSanh}">
@@ -33,13 +32,6 @@
         <td>${sanh.gia}</td> 
         <td>${sanh.tinhTrang}</td> 
         <td>${sanh.ghiChu}</td>
-        <td>
-            <fast-button href="#" appearance="outline"  onclick="deleteSanh(${sanh.idSanh})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/sanh" />/?idSanh=${sanh.idSanh}" 
-                           >Cập nhật</a></fast-button>
-
-            
-        </td>
     </tr>
     </c:forEach>
 </table>

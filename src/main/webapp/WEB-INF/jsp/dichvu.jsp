@@ -24,7 +24,6 @@
         <th>Tên dịch vụ</th>
         <th>Giá</th>
         <th>Ghi chú</th>
-        <th></th>
     </tr>
     <c:forEach items="${dichvu}" var="dvu">
     <tr id="dichvu${dvu.idDichVu}">
@@ -32,11 +31,6 @@
         <td>${dvu.tenDichVu}</td> 
         <td>${dvu.gia}</td>
         <td>${dvu.ghiChu}</td>
-        <td>
-            <fast-button href="#" appearance="outline"  onclick="deleteDichVu(${dvu.idDichVu})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/dichvu" />/?idDichVu=${dvu.idDichVu}" 
-                           >Cập nhật</a></fast-button>   
-        </td>
     </tr>
     </c:forEach>
 </table>

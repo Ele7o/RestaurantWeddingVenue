@@ -20,7 +20,6 @@
         <th>Mã sảnh</th>
         <th>Ngày tổ chức</th>
         <th>Ghi chú</th>
-        <th></th>
     </tr>
     <c:forEach items="${donhang}" var="dhang">
     <tr id="donhang${dhang.idDonHang}">
@@ -29,11 +28,6 @@
         <td>${dhang.idSanh}</td>
         <td>${dhang.ngayToChuc}</td>
         <td>${dhang.ghiChu}</td>
-        <td>
-            <fast-button href="#" appearance="outline"  onclick="deleteDonHang(${dhang.idDonHang})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/donhang" />/?idDonHang=${dhang.idDonHang}" 
-                           >Cập nhật</a></fast-button>   
-        </td>
     </tr>
     </c:forEach>
 </table>
