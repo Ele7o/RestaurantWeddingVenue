@@ -37,4 +37,9 @@ public class DonHangServiceImpl implements DonHangService{
     public boolean addOrUpdateDonHang(DonHang donHang) {
         return this.donHangRepository.addOrUpdateDonHang(donHang);
     }
+
+    @Override
+    public boolean deleteDonHang(int idDonHang) {
+        return this.donHangRepository.deleteDonHang(idDonHang);
+    }
 }

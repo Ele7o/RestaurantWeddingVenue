@@ -16,4 +16,5 @@ public interface DichVuService {
     List<DichVu> getDichVus();
     DichVu getDichVuById(int idDichVu);
     boolean addOrUpdateDichVu(DichVu dichVu);
+    boolean deleteDichVu(int idDichVu);
 }

@@ -35,5 +35,10 @@ public class KhachHangServiceImpl implements KhachHangService{
     public boolean addOrUpdateKhachHang(KhachHang khachHang) {
         return this.khachHangRepository.addOrUpdateKhachHang(khachHang);
     }
+
+    @Override
+    public boolean deleteKhachHang(int idKhachHang) {
+        return this.khachHangRepository.deleteKhachHang(idKhachHang);
+    }
     
 }

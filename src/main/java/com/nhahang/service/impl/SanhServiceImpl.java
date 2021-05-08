@@ -35,5 +35,10 @@ public class SanhServiceImpl implements SanhService {
     public boolean addOrUpdateSanh(Sanh sanh) {
        return this.sanhRepository.addOrUpdateSanh(sanh);
     }
+
+    @Override
+    public boolean deleteSanh(int idSanh) {
+       return this.sanhRepository.deleteSanh(idSanh);
+    }
     
 }
