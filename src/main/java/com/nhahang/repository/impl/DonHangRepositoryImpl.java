@@ -41,6 +41,7 @@ public class DonHangRepositoryImpl implements DonHangRepository{
     }
 
     @Override
+    @Transactional
     public boolean addOrUpdateDonHang(DonHang donHang) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
@@ -50,6 +51,20 @@ public class DonHangRepositoryImpl implements DonHangRepository{
             else{
                 s.save(donHang);
             }
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteDonHang(int idDonHang) {
+        try{
+            Session s = this.sessionFactory.getObject().getCurrentSession();
+            s.delete(s.get(DonHang.class, idDonHang));
+            
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

@@ -27,12 +27,20 @@
         <th>Mã nghiệp vụ</th>
         <th>Tên nghiệp vụ</th>
         <th>Ghi chú</th>
+        <th></th>
     </tr>
     <c:forEach items="${nghiepvulist}" var="nvu">
     <tr id="nghiepvu${nvu.idNghiepVu}">
         <td>${nvu.idNghiepVu}</td> 
         <td>${nvu.tenNghiepVu}</td> 
         <td>${nvu.ghiChu}</td>
+        <td>
+            <fast-button href="#" appearance="outline"  onclick="deleteNghiepVu(${nvu.idNghiepVu})">Xóa</fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nghiepvulist" />/?idNghiepVu=${nvu.idNghiepVu}" 
+                           >Cập nhật</a></fast-button>
+
+            
+        </td>
     </tr>
     </c:forEach>
 </table>

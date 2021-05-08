@@ -35,5 +35,10 @@ public class PhanHoiServiceImpl implements PhanHoiService{
     public boolean addOrUpdatePhanHoi(PhanHoi phanHoi) {
         return this.phanHoiRepository.addOrUpdatePhanHoi(phanHoi);
     }
+
+    @Override
+    public boolean deletePhanHoi(int idPhanHoi) {
+        return this.phanHoiRepository.deletePhanHoi(idPhanHoi);
+    }
     
 }

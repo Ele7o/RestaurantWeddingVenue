@@ -26,4 +26,9 @@ public class NghiepVuServiceImpl implements NghiepVuService {
         return this.nghiepVuRepository.addOrUpdateNghiepVu(nghiepVu);
     }
 
+    @Override
+    public boolean deleteNghiepVu(int idNghiepVu) {
+        return this.nghiepVuRepository.deleteNghiepVu(idNghiepVu);
+    }
+
 }

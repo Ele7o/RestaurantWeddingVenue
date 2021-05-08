@@ -9,4 +9,5 @@ public interface NghiepVuService {
     List<NghiepVu> getNghiepVu();
     NghiepVu getNghiepVuById(int idNghiepVu);
     boolean addOrUpdateNghiepVu(NghiepVu nghiepVu);
+    boolean deleteNghiepVu(int idNghiepVu);
 }

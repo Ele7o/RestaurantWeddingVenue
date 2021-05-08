@@ -16,4 +16,5 @@ public interface SanhService {
     List<Sanh> getSanh();
     Sanh getSanhById(int idSanh);
     boolean addOrUpdateSanh(Sanh sanh);
+    boolean deleteSanh(int idSanh);
 }

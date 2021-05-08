@@ -34,6 +34,11 @@ public class DichVuServiceImpl implements DichVuService{
     public boolean addOrUpdateDichVu(DichVu dichVu){
         return this.dichVuRepository.addOrUpdateDichVu(dichVu);
     }
+
+    @Override
+    public boolean deleteDichVu(int idDichVu) {
+       return this.dichVuRepository.deleteDichVu(idDichVu);
+    }
     
     
     
