@@ -16,5 +16,4 @@ public interface KhachHangRepository {
     List<KhachHang> getKhachHang();
     KhachHang getKhachHangById(int idKhachHang);
     boolean addOrUpdateKhachHang(KhachHang khachHang);
-    boolean deleteKhachHang(int idKhachHang);
 }

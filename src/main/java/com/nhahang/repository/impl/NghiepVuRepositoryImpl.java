@@ -38,7 +38,6 @@ public class NghiepVuRepositoryImpl implements NghiepVuRepository{
     }
 
     @Override
-    @Transactional
     public boolean addOrUpdateNghiepVu(NghiepVu nghiepVu) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
@@ -48,20 +47,6 @@ public class NghiepVuRepositoryImpl implements NghiepVuRepository{
             else{
                 s.save(nghiepVu);
             }
-        }catch(HibernateException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @Override
-    @Transactional
-    public boolean deleteNghiepVu(int idNghiepVu) {
-        try{
-            Session s = this.sessionFactory.getObject().getCurrentSession();
-            s.delete(s.get(NghiepVu.class, idNghiepVu));
-            
-            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

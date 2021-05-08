@@ -41,7 +41,6 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
     }
 
     @Override
-    @Transactional
     public boolean addOrUpdatePhanHoi(PhanHoi phanHoi) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
@@ -51,20 +50,6 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
             else{
                 s.save(phanHoi);
             }
-        }catch(HibernateException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @Override
-    @Transactional
-    public boolean deletePhanHoi(int idPhanHoi) {
-        try{
-            Session s = this.sessionFactory.getObject().getCurrentSession();
-            s.delete(s.get(PhanHoi.class, idPhanHoi));
-            
-            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }
