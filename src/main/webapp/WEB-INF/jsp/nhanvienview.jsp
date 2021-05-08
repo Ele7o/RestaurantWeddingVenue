@@ -1,5 +1,5 @@
 <%-- 
-    Document   : nhanvien
+    Document   : nhanvienview
     Created on : Apr 28, 2021, 11:25:41 PM
     Author     : btson
 --%>
@@ -22,17 +22,17 @@
             <form:errors path="*" element="div" 
                         cssClass="alert alert-danger" />
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.idNhanVien"/></label>
-                <form:input cssClass="form-control" path="idNhanVien"  />
+                <label><spring:message code="nhanvien.idNghiepVu"/></label>
+                <form:input cssClass="form-control-plaintext" path="idNhanVien" style="color: #E1477E" disabled="true" />
             </div>
 
             <div class="form-group"  style="margin-top: 20px;">
                 <label><spring:message code="nhanvien.tenNhanVien" /></label>
-                <form:input cssClass="form-control" path="tenNhanVien" />
+                <form:input cssClass="form-control-plaintext" path="tenNhanVien" style="color: #E1477E" disabled="true"/>
             </div>
-            <div class="form-group"  style="margin-top: 20px;">
+            <div class="form-group"  style="margin-top: 20px;" >
                 <label><spring:message code="nhanvien.nghiepVu" /> </label>
-                <form:select path="idNghiepVuForm" cssClass="form-control">
+                <form:select path="idNghiepVuForm" cssClass="form-control-plaintext" style="color: #E1477E" disabled="true">
                     <c:forEach items="${nghiepvu}" var="ngvu">
                         <c:if test="${ngvu.idNghiepVu == nhanvien.nghiepVu.idNghiepVu}">
                             <option selected value="${ngvu.idNghiepVu}">${ngvu.tenNghiepVu}</option>
@@ -46,14 +46,12 @@
         
             <div class="form-group"  style="margin-top: 20px;">
                 <label><spring:message code="nhanvien.ghiChu" /></label>
-                <form:input cssClass="form-control" path="ghiChu" />
-            </div>
-            <div style="margin-top: 20px;">
-                
-                <input type="submit" class="btn btn-danger"  value="<spring:message code="nhanvien.submit" />" />
+                <form:input cssClass="form-control-plaintext" style="color: #E1477E" path="ghiChu" disabled="true"/>
+                  
             </div>
             
-                    
         </form:form>
     </div>
+        
 </fast-card>
+        
