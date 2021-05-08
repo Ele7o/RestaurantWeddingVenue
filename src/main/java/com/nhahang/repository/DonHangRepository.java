@@ -16,5 +16,4 @@ public interface DonHangRepository {
     List<DonHang> getDonHangs();
     DonHang getDonHangById(int idDonHang);
     boolean addOrUpdateDonHang(DonHang donHang);
-    boolean deleteDonHang(int idDonHang);
 }

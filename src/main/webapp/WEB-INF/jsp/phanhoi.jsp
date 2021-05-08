@@ -25,7 +25,6 @@
         <th>Loại</th>
         <th>Nội dung</th>
         <th>Ghi chú</th>
-        <th></th>
     </tr>
     <c:forEach items="${phanhoi}" var="phanhoi">
     <tr id="phanhoi${phanhoi.idPhanHoi}">
@@ -34,13 +33,6 @@
         <td>${phanhoi.loaiPhanHoi}</td> 
         <td>${phanhoi.noiDung}</td> 
         <td>${phanhoi.ghiChu}</td>
-        <td>
-            <fast-button href="#" appearance="outline"  onclick="deletePhanHoi(${phanhoi.idPhanHoi})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/phanhoi" />/?idPhanHoi=${phanhoi.idPhanHoi}" 
-                           >Cập nhật</a></fast-button>
-
-            
-        </td>
     </tr>
     </c:forEach>
 </table>
