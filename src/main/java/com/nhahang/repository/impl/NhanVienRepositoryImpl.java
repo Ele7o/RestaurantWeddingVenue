@@ -78,7 +78,7 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
                 s.update(nhanVien);
             }
             else{
-                nhanVien.setNghiepVu(this.nghiepVuRepo.getNghiepVuById(nhanVien.getIdNghiepVuForm()));  
+                nhanVien.setNghiepVu(this.nghiepVuRepo.getNghiepVuById(nhanVien.getIdNghiepVuForm()));
                 s.save(nhanVien);
             }
             return true;

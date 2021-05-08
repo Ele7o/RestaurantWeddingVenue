@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 
 
-<fast-card style="width: 100% "><img src="https://via.placeholder.com/300x200/414141" />
+<fast-card id="hentai"style="width: 100% "><img src="https://via.placeholder.com/300x200/414141" />
     <div style="padding: 0 10px 10px;  color: var(--neutral-foreground-rest);">
         <c:url value="/nhanvien/add" var="action" />
         <form:form method="post" 
@@ -22,8 +22,8 @@
             <form:errors path="*" element="div" 
                         cssClass="alert alert-danger" />
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.idNhanVien"/></label>
-                <form:input cssClass="form-control" path="idNhanVien"  />
+                <label><spring:message code="nhanvien.idNghiepVu"/></label>
+                <form:input cssClass="form-control" path="idNhanVien" />
             </div>
 
             <div class="form-group"  style="margin-top: 20px;">
