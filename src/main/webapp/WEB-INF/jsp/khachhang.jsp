@@ -24,6 +24,7 @@
         <th>Tên khách hàng</th>
         <th>Số điện thoại</th>
         <th>Ghi chú</th>
+        <th></th>
     </tr>
     <c:forEach items="${khachhang}" var="khang">
     <tr id="khachhang${khang.idKhachHang}">
@@ -31,6 +32,11 @@
         <td>${khang.tenKhachHang}</td>
         <td>${khang.soDT}</td> 
         <td>${khang.ghiChu}</td>
+        <td>
+            <fast-button href="#" appearance="outline"  onclick="deleteKhachHang(${khang.idKhachHang})">Xóa</fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/khachhang" />/?idKhachHang=${khang.idKhachHang}" 
+                           >Cập nhật</a></fast-button>   
+        </td>
     </tr>
     </c:forEach>
 </table>

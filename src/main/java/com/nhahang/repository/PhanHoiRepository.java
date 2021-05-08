@@ -16,4 +16,5 @@ public interface PhanHoiRepository {
     List<PhanHoi> getPhanHoi();
     PhanHoi getPhanHoiById(int idPhanHoi);
     boolean addOrUpdatePhanHoi(PhanHoi phanHoi);
+    boolean deletePhanHoi(int idPhanHoi);
 }

@@ -41,6 +41,7 @@ public class SanhRepositoryImpl implements SanhRepository {
     }
 
     @Override
+    @Transactional
     public boolean addOrUpdateSanh(Sanh sanh) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
@@ -55,5 +56,18 @@ public class SanhRepositoryImpl implements SanhRepository {
         }
         return false;
     }
-    
+
+    @Override
+    @Transactional
+    public boolean deleteSanh(int idSanh) {
+        try{
+            Session s = this.sessionFactory.getObject().getCurrentSession();
+            s.delete(s.get(Sanh.class, idSanh));
+            
+            return true;
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
+    }    
 }

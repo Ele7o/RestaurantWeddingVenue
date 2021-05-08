@@ -54,5 +54,18 @@ public class DichVuRepositoryImpl implements DichVuRepository{
         }
         return false;
     }
-    
+
+    @Override
+    @Transactional
+    public boolean deleteDichVu(int idDichVu) {
+        try{
+            Session s = this.sessionFactory.getObject().getCurrentSession();
+            s.delete(s.get(DichVu.class, idDichVu));
+            
+            return true;
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
