@@ -37,7 +37,15 @@ public class NghiepVuController {
     public void addAttributes(Model model,HttpSession session){
         model.addAttribute("nghiepvu",this.nghiepVuService.getNghiepVu());
     }
-    
+    @RequestMapping("/info")
+    public String addViewInfo(Model model,
+                                @RequestParam(name="idNhanVien",required = false)String idNhanVien) {
+        int id= Integer.parseInt(idNhanVien);
+        if(id != 0){
+            model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById(id));
+        }
+        return "ttnhanvien";
+    } 
     @RequestMapping("/")
     public String index(Model model, @RequestParam(name="idNghiepVu",required = false)String idNghiepVu){
         if(idNghiepVu == null){

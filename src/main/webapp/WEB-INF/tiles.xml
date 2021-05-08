@@ -54,5 +54,9 @@
         <put-attribute name="title" value="Danh sach cac sanh"/>
         <put-attribute name="content" value="/WEB-INF/jsp/sanh.jsp"/>
     </definition>
+    <definition name="ttnhanvien" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin nhan vien"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nhanvienview.jsp"/>
+    </definition>
    
 </tiles-definitions>
