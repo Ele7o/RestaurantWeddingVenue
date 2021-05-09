@@ -5,6 +5,7 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.DichVu;
 import com.nhahang.service.DichVuService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,16 @@ public class DichVuController {
             model.addAttribute("dichvu",this.dichVuService.getDichVuById(Integer.parseInt(idDichVu)));
         }
         return "dichvu";
+    }
+    @RequestMapping("/suadichvu")
+    public String addView(Model model, @RequestParam(name="idDichVu", required = false,defaultValue = "0")String idDichVu){
+        int id = Integer.parseInt(idDichVu);
+        if(id>0){
+            model.addAttribute("dichvu",this.dichVuService.getDichVuById(id));
+        }
+        else{
+            model.addAttribute("dichvu", new DichVu());
+        }
+        return "suadichvu";
     }
 }

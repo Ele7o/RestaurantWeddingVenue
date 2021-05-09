@@ -58,6 +58,26 @@
         <put-attribute name="title" value="Thong tin sanh"/>
         <put-attribute name="content" value="/WEB-INF/jsp/suasanh.jsp"/>
     </definition>
+    <definition name="suadichvu" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin dich vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/suadichvu.jsp"/>
+    </definition>
+    <definition name="suadonhang" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin don hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/suadonhang.jsp"/>
+    </definition>
+    <definition name="suakhachhang" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin khach hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/suakhachhang.jsp"/>
+    </definition>
+    <definition name="suaphanhoi" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin phan hoi"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/suaphanhoi.jsp"/>
+    </definition>
+    <definition name="suanghiepvu" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin nghiep vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/suanghiepvu.jsp"/>
+    </definition>
     <definition name="ttnhanvien" extends="baseLayout">
         <put-attribute name="title" value="Thong tin nhan vien"/>
         <put-attribute name="content" value="/WEB-INF/jsp/nhanvienview.jsp"/>

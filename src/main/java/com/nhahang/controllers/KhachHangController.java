@@ -5,6 +5,7 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.KhachHang;
 import com.nhahang.service.KhachHangService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,4 +43,15 @@ public class KhachHangController {
         return "khachhang";
     }
     
+    @RequestMapping("/suakhachhang")
+    public String addView(Model model, @RequestParam(name="idKhachHang", required = false,defaultValue = "0")String idKhachHang){
+        int id = Integer.parseInt(idKhachHang);
+        if(id>0){
+            model.addAttribute("khachhang",this.khachHangService.getKhachHangById(id));
+        }
+        else{
+            model.addAttribute("khachhang", new KhachHang());
+        }
+        return "suakhachhang";
+    }
 }

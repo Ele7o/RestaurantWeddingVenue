@@ -5,6 +5,7 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.DonHang;
 import com.nhahang.service.DonHangService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,16 @@ public class DonHangController {
             model.addAttribute("donhang",this.donHangService.getDonHangById(Integer.parseInt(idDonHang)));
         }
         return "donhang";
+    }
+    @RequestMapping("/suadonhang")
+    public String addView(Model model, @RequestParam(name="idDonHang", required = false,defaultValue = "0")String idDonHang){
+        int id = Integer.parseInt(idDonHang);
+        if(id>0){
+            model.addAttribute("donhang",this.donHangService.getDonHangById(id));
+        }
+        else{
+            model.addAttribute("donhang", new DonHang());
+        }
+        return "suadonhang";
     }
 }

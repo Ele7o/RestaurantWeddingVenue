@@ -36,6 +36,8 @@
             <fast-button href="#" appearance="outline"  onclick="deleteDichVu(${dvu.idDichVu})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/dichvu" />/?idDichVu=${dvu.idDichVu}" 
                            >Cập nhật</a></fast-button>   
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DichVu/suadichvu" />/?idDichVu=${dvu.idDichVu}" 
+                           >Thông tin</a></fast-button>
         </td>
     </tr>
     </c:forEach>

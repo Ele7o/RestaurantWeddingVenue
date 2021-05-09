@@ -5,6 +5,7 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.NghiepVu;
 import com.nhahang.service.NghiepVuService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,17 @@ public class NghiepVuListController {
             model.addAttribute("nghiepvulist",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)));
         }
         return "nghiepvulist";
+    }
+    
+    @RequestMapping("/suanghiepvu")
+    public String addView(Model model, @RequestParam(name="idNghiepVu", required = false,defaultValue = "0")String idNghiepVu){
+        int id = Integer.parseInt(idNghiepVu);
+        if(id>0){
+            model.addAttribute("nghiepvu",this.nghiepVuService.getNghiepVuById(id));
+        }
+        else{
+            model.addAttribute("nghiepvu", new NghiepVu());
+        }
+        return "suanghiepvu";
     }
 }

@@ -38,6 +38,8 @@
             <fast-button href="#" appearance="outline"  onclick="deletePhanHoi(${phanhoi.idPhanHoi})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/phanhoi" />/?idPhanHoi=${phanhoi.idPhanHoi}" 
                            >Cập nhật</a></fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/PhanHoi/suaphanhoi" />/?idPhanHoi=${phanhoi.idPhanHoi}" 
+                           >Thông tin</a></fast-button>
 
             
         </td>

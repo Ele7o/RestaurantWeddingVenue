@@ -33,6 +33,8 @@
             <fast-button href="#" appearance="outline"  onclick="deleteDonHang(${dhang.idDonHang})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/donhang" />/?idDonHang=${dhang.idDonHang}" 
                            >Cập nhật</a></fast-button>   
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHang/suadonhang" />/?idDonHang=${dhang.idDonHang}" 
+                           >Thông tin</a></fast-button>
         </td>
     </tr>
     </c:forEach>

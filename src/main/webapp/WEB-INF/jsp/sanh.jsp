@@ -37,6 +37,8 @@
             <fast-button href="#" appearance="outline"  onclick="deleteSanh(${sanh.idSanh})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/sanh" />/?idSanh=${sanh.idSanh}" 
                            >Cập nhật</a></fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/Sanh/suasanh" />/?idSanh=${sanh.idSanh}" 
+                           >Thông tin</a></fast-button>
 
             
         </td>

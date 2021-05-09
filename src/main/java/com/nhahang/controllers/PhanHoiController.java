@@ -5,6 +5,7 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.PhanHoi;
 import com.nhahang.service.PhanHoiService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,17 @@ public class PhanHoiController {
             model.addAttribute("phanhoi",this.phanHoiService.getPhanHoiById(Integer.parseInt(idPhanHoi)));
         }
         return "phanhoi";
+    }
+    
+    @RequestMapping("/suaphanhoi")
+    public String addView(Model model, @RequestParam(name="idPhanHoi", required = false,defaultValue = "0")String idPhanHoi){
+        int id = Integer.parseInt(idPhanHoi);
+        if(id>0){
+            model.addAttribute("phanhoi",this.phanHoiService.getPhanHoiById(id));
+        }
+        else{
+            model.addAttribute("phanhoi", new PhanHoi());
+        }
+        return "suaphanhoi";
     }
 }

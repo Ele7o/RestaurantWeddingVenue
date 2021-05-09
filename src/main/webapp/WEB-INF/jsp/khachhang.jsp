@@ -34,8 +34,8 @@
         <td>${khang.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteKhachHang(${khang.idKhachHang})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/khachhang" />/?idKhachHang=${khang.idKhachHang}" 
-                           >Cập nhật</a></fast-button>   
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/KhachHang/suakhachhang" />/?idKhachHang=${khang.idKhachHang}" 
+                           >Thông tin</a></fast-button>  
         </td>
     </tr>
     </c:forEach>
