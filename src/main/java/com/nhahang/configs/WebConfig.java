@@ -52,18 +52,18 @@ public class WebConfig implements WebMvcConfigurer {
         return source;
     }
 
-//    @Bean(name = "validator")
-//    public LocalValidatorFactoryBean validator() {
-//        LocalValidatorFactoryBean bean
-//                = new LocalValidatorFactoryBean();
-//        bean.setValidationMessageSource(messageSource());
-//        return bean;
-//    }
-//
-//    @Override
-//    public Validator getValidator() {
-//        return validator();
-//    }
+    @Bean(name = "validator")
+    public LocalValidatorFactoryBean validator() {
+        LocalValidatorFactoryBean bean
+                = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }
+
+    @Override
+    public Validator getValidator() {
+        return validator();
+    }
 
 //    @Override
 //    public void addFormatters(FormatterRegistry registry) {
