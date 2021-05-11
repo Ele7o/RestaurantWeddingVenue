@@ -17,43 +17,44 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author X_X
  */
+@Service
 public class TaiKhoanServiceImpl implements TaiKhoanService{
     @Autowired
     private TaiKhoanRepository taiKhoanRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
     
     @Override
-    @Transactional
-    public void addTaiKhoan(TaiKhoan taiKhoan) {
-        taiKhoan.setMatKhau(bCryptPasswordEncoder.encode(taiKhoan.getMatKhau())); 
-            taiKhoanRepository.addTaiKhoan(taiKhoan);
+    public boolean addTaiKhoan(TaiKhoan taiKhoan) {
+        return this.taiKhoanRepository.addTaiKhoan(taiKhoan);
     }
     
-    @Override
-    @Transactional(readOnly = true)
-    public TaiKhoan getTaiKhoanByTenTaiKhoan(String tenTaiKhoan) {
-        return taiKhoanRepository.getTaiKhoans(tenTaiKhoan).get(0);
+       @Override
+    public List<TaiKhoan> getTaiKhoans(String tenTaiKhoan) {
+        return  this.taiKhoanRepository.getTaiKhoans(tenTaiKhoan);
     }
-    
+   
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String tenTaiKhoan) throws UsernameNotFoundException {
-       List<TaiKhoan> taiKhoans = taiKhoanRepository.getTaiKhoans(tenTaiKhoan);
+        List<TaiKhoan> taiKhoans = taiKhoanRepository.getTaiKhoans(tenTaiKhoan);
         if (taiKhoans.isEmpty())
-        throw new UsernameNotFoundException("Không tồn tại!"); 
+            throw new UsernameNotFoundException("Không tồn tại!"); 
         TaiKhoan taiKhoan = taiKhoans.get(0);
+        
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(new SimpleGrantedAuthority(taiKhoan.getRole()));
+        
         return new org.springframework.security.core.userdetails.User(
                 taiKhoan.getTenTaiKhoan(), taiKhoan.getMatKhau(), authorities);
     }
+
+
 
     
 }

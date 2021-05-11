@@ -5,11 +5,9 @@
  */
 package com.nhahang.configs;
 
-import com.nhahang.validator.PassValidator;
-import com.nhahang.validator.WebAppValidator;
-import java.util.HashSet;
+//import com.nhahang.validator.PassValidator;
+//import com.nhahang.validator.WebAppValidator;
 import java.util.Properties;
-import java.util.Set;
 import javax.sql.DataSource;
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.validation.Validator;
 
 /**
  *
@@ -72,14 +69,14 @@ public class HibernateConfig {
                 getSessionFactory().getObject());
         return transactionManager;
     }
-    @Bean
-    public WebAppValidator userValidator(){
-        Set<Validator> springValidators = new HashSet<>();
-        springValidators.add(new PassValidator());
-        
-        WebAppValidator validator = new WebAppValidator();
-        validator.setSpringValidators(springValidators);
-        
-        return validator;
-    }
+//    @Bean
+//    public WebAppValidator userValidator(){
+//        Set<Validator> springValidators = new HashSet<>();
+//        springValidators.add(new PassValidator());
+//        
+//        WebAppValidator validator = new WebAppValidator();
+//        validator.setSpringValidators(springValidators);
+//        
+//        return validator;
+//    }
 }

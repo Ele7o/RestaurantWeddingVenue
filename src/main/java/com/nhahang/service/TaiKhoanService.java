@@ -14,6 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @author X_X
  */
 public interface TaiKhoanService extends UserDetailsService{
-    TaiKhoan getTaiKhoanByTenTaiKhoan(String tenTaiKhoan);
-    void addTaiKhoan(TaiKhoan taiKhoan);
+    List<TaiKhoan> getTaiKhoans(String tenTaiKhoan);
+    boolean addTaiKhoan(TaiKhoan taiKhoan);
 }

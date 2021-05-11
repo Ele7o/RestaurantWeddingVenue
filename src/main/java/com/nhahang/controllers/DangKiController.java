@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,21 +23,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author X_X
  */
 @Controller
-@RequestMapping("/login")
-public class DangNhapController {
-    @Autowired 
+@ControllerAdvice
+@RequestMapping("/register")
+public class DangKiController {
+    @Autowired
     private TaiKhoanService taiKhoanService;
-
-//    @InitBinder
-//    public void initBinder(WebDataBinder binder) {
-//        binder.setValidator(taiKhoanValidator);
-//    } 
     
-    @RequestMapping("/")
-    public String login(Model model) {
-        model.addAttribute("login", new TaiKhoan()); 
-        return "login";
+    @GetMapping(value = "/")
+    public String registerView(Model model) {
+        model.addAttribute("register", new TaiKhoan()); 
+        return "register";
     }
     
-    
+    @PostMapping(value = "/success")
+    public String registerProcess(
+        @ModelAttribute(name = "register") @Valid TaiKhoan taiKhoan, BindingResult result) {
+        if (result.hasErrors()) 
+            return "register"; 
+        taiKhoanService.addTaiKhoan(taiKhoan); 
+        
+        return "redirect:/login";
+    }
 }

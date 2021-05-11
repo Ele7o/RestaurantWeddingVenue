@@ -86,4 +86,8 @@
         <put-attribute name="title" value="Dang nhap"/>
         <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
+    <definition name="register" extends="baseLayout">
+        <put-attribute name="title" value="Dang ki"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
+    </definition>
 </tiles-definitions>

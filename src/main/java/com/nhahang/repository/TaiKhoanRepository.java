@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface TaiKhoanRepository {
     List<TaiKhoan> getTaiKhoans(String tenTaiKhoan);
-    void addTaiKhoan(TaiKhoan taiKhoan);
+    boolean addTaiKhoan(TaiKhoan taiKhoan);
 }
