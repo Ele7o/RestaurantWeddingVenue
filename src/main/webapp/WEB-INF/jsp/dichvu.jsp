@@ -14,7 +14,8 @@
 </style>
 </br>
 <h1 >DANH SÁCH DỊCH VỤ</h1>
-
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DichVuView" />/?idDichVu=0" 
+                           >+</a></fast-button>
 
 
 

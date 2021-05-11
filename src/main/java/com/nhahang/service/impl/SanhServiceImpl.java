@@ -22,8 +22,12 @@ public class SanhServiceImpl implements SanhService {
     private SanhRepository sanhRepository;
     
     @Override
-    public List<Sanh> getSanh() {
-        return this.sanhRepository.getSanh(); //To change body of generated methods, choose Tools | Templates.
+    public List<Sanh> getSanh(){
+        return this.sanhRepository.getSanh();
+    }
+    @Override
+    public List<Sanh> getSanh(String idSanh) {
+        return this.sanhRepository.getSanh(idSanh); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

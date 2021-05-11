@@ -30,9 +30,17 @@
         <put-attribute name="title" value="Danh sach nghiep vu"/>
         <put-attribute name="content" value="/WEB-INF/jsp/nghiepvulist.jsp"/>
     </definition>
+    <definition name="nghiepvulistview" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach nghiep vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nghiepvuaod.jsp"/>
+    </definition>
     <definition name="dichvu" extends="baseLayout">
         <put-attribute name="title" value="Danh sach dich vu"/>
         <put-attribute name="content" value="/WEB-INF/jsp/dichvu.jsp"/>
+    </definition>
+    <definition name="dichvuview" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin dich vu"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/dichvuaod.jsp"/>
     </definition>
     <definition name="donhang" extends="baseLayout">
         <put-attribute name="title" value="Danh sach don hang"/>
@@ -41,6 +49,10 @@
     <definition name="khachhang" extends="baseLayout">
         <put-attribute name="title" value="Danh sach khach hang"/>
         <put-attribute name="content" value="/WEB-INF/jsp/khachhang.jsp"/>
+    </definition>
+    <definition name="khachhangview" extends="baseLayout">
+        <put-attribute name="title" value="Danh sach khach hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/khachhangaod.jsp"/>
     </definition>
     <definition name="mon" extends="baseLayout">
         <put-attribute name="title" value="Danh sach cac mon an"/>
@@ -53,6 +65,10 @@
     <definition name="sanh" extends="baseLayout">
         <put-attribute name="title" value="Danh sach cac sanh"/>
         <put-attribute name="content" value="/WEB-INF/jsp/sanh.jsp"/>
+    </definition>
+    <definition name="SanhView" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin sanh"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/sanhaod.jsp"/>
     </definition>
     <definition name="ttnhanvien" extends="baseLayout">
         <put-attribute name="title" value="Thong tin nhan vien"/>

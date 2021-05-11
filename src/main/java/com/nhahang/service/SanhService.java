@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface SanhService {
     List<Sanh> getSanh();
+    List<Sanh> getSanh(String idSanh);
     Sanh getSanhById(int idSanh);
     boolean addOrUpdateSanh(Sanh sanh);
     boolean deleteSanh(int idSanh);

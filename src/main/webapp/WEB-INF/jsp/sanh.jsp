@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 </br>
 <h1 >SẢNH</h1>
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/SanhView" />/?idSanh=0" 
+                           >+</a></fast-button>
 <style>
     #table{
         color:white;
@@ -35,7 +37,7 @@
         <td>${sanh.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteSanh(${sanh.idSanh})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/sanh" />/?idSanh=${sanh.idSanh}" 
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/SanhView" />/?idSanh=${sanh.idSanh}" 
                            >Cập nhật</a></fast-button>
 
             

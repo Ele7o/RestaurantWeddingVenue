@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 </br>
 <h1 >DANH SÁCH NGHIỆP VỤ</h1>
-
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVuListView" />/?idDichVu=0" 
+                           >+</a></fast-button>
 <style>
     body{
         margin:auto;
@@ -36,7 +37,7 @@
         <td>${nvu.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteNghiepVu(${nvu.idNghiepVu})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nghiepvulist" />/?idNghiepVu=${nvu.idNghiepVu}" 
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVuListView" />/?idNghiepVu=${nvu.idNghiepVu}" 
                            >Cập nhật</a></fast-button>
 
             

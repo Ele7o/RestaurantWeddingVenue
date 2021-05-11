@@ -51,6 +51,7 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
             else{
                 s.save(phanHoi);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

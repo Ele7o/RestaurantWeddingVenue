@@ -49,6 +49,7 @@ public class DichVuRepositoryImpl implements DichVuRepository{
             else{
                 s.save(dichVu);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

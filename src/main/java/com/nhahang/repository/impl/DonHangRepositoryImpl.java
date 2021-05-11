@@ -51,6 +51,7 @@ public class DonHangRepositoryImpl implements DonHangRepository{
             else{
                 s.save(donHang);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

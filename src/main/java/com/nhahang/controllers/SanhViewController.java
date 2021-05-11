@@ -7,7 +7,6 @@ package com.nhahang.controllers;
 
 import com.nhahang.pojo.Sanh;
 import com.nhahang.service.SanhService;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,27 +20,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author X_X
+ * @author btson
  */
 @Controller
 @ControllerAdvice
-@RequestMapping("/Sanh")
-public class SanhController {
+@RequestMapping("/SanhView")
+public class SanhViewController {
     @Autowired
     private SanhService sanhService;
     
-    @ModelAttribute
-    public void addAttributes(Model model, HttpSession session){
-        model.addAttribute("sanh",this.sanhService.getSanh());
-    }
     @RequestMapping("/")
-    public String index(Model model, @RequestParam(name="idSanh", required = false) String idSanh){
-        if(idSanh == null){
-            model.addAttribute("sanh",this.sanhService.getSanh(""));
+    public String addView(Model model, @RequestParam(name="idSanh",required = false, defaultValue = "0")String idSanh){
+        int id = Integer.parseInt(idSanh);
+        if(id>0){
+            model.addAttribute("sanh2", this.sanhService.getSanhById(id));
         }
         else{
-            model.addAttribute("sanh",this.sanhService.getSanhById(Integer.parseInt(idSanh)));
+            model.addAttribute("sanh2", new Sanh());
         }
-        return "sanh";
+        return "SanhView";
+    }
+    @PostMapping("/add")
+    public String addSanh(Model model, 
+            @ModelAttribute(value="sanh2")@Valid Sanh sanh, 
+            BindingResult rs){
+        if(rs.hasErrors()){
+            return "SanhView";
+        }
+        if(!this.sanhService.addOrUpdateSanh(sanh)){
+            model.addAttribute("errorMsg","ERRO404");
+            return("SanhView");
+        }
+        return "redirect:/Sanh/";
     }
 }

@@ -14,7 +14,8 @@
 </style>
 </br>
 <h1 >CÁC KHÁCH HÀNG</h1>
-
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/KhachHangView" />/?idDichVu=0" 
+                           >+</a></fast-button>
 
 
 
@@ -34,7 +35,7 @@
         <td>${khang.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteKhachHang(${khang.idKhachHang})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/khachhang" />/?idKhachHang=${khang.idKhachHang}" 
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/KhachHangView" />/?idKhachHang=${khang.idKhachHang}" 
                            >Cập nhật</a></fast-button>   
         </td>
     </tr>

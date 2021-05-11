@@ -51,6 +51,7 @@ public class KhachHangRepositoryImpl implements KhachHangRepository{
             else{
                 s.save(khachHang);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

@@ -9,6 +9,10 @@ import com.nhahang.pojo.Sanh;
 import com.nhahang.repository.SanhRepository;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +28,28 @@ import org.springframework.transaction.annotation.Transactional;
 public class SanhRepositoryImpl implements SanhRepository {
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
-
+    
     @Override
     @Transactional
-    public List<Sanh> getSanh() {
+    public List<Sanh> getSanh(){
         Session s = this.sessionFactory.getObject().getCurrentSession();
         Query q = s.createQuery("From Sanh");
+        return q.getResultList();
+    }
+    @Override
+    @Transactional
+    public List<Sanh> getSanh(String idSanh) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<Sanh> query = builder.createQuery(Sanh.class);
+        Root root = query.from(Sanh.class);
+        query.select(root);
+        if(idSanh != null && !idSanh.isEmpty()){
+            Predicate p = builder.like(root.get("maSanh").as(String.class), String.format("%%%s%%",idSanh));
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
         return q.getResultList();
     }
 
@@ -51,6 +71,7 @@ public class SanhRepositoryImpl implements SanhRepository {
             else{
                 s.save(sanh);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

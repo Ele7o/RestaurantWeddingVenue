@@ -48,6 +48,7 @@ public class NghiepVuRepositoryImpl implements NghiepVuRepository{
             else{
                 s.save(nghiepVu);
             }
+            return true;
         }catch(HibernateException e){
             e.printStackTrace();
         }

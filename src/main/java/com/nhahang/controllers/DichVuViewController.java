@@ -5,9 +5,8 @@
  */
 package com.nhahang.controllers;
 
-import com.nhahang.service.DichVuService;
 import com.nhahang.pojo.DichVu;
-import javax.servlet.http.HttpSession;
+import com.nhahang.service.DichVuService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,29 +20,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author X_X
+ * @author btson
  */
 @Controller
 @ControllerAdvice
-@RequestMapping("/DichVu")
-public class DichVuController {
+@RequestMapping("/DichVuView")
+public class DichVuViewController {
     @Autowired
     private DichVuService dichVuService;
     
-    @ModelAttribute
-    public void addAttributes(Model model,HttpSession session){
-        model.addAttribute("dichvu",this.dichVuService.getDichVus());
-    }
-    
     @RequestMapping("/")
-    public String index(Model model, @RequestParam(name="idDichVu",required = false)String idDichVu){
-        if(idDichVu == null){
-            model.addAttribute("dichvu",this.dichVuService.getDichVus());
+    public String addView(Model model, @RequestParam(name="idDichVu", required = false ,defaultValue = "0")String idDichVu){
+        int id = Integer.parseInt(idDichVu);
+        if(id>0){
+            model.addAttribute("dichvu2",this.dichVuService.getDichVuById(id));
         }
         else{
-            model.addAttribute("dichvu",this.dichVuService.getDichVuById(Integer.parseInt(idDichVu)));
+            model.addAttribute("dichvu2", new DichVu());
         }
-        return "dichvu";
+        return "dichvuview";
     }
-   
+
+    @PostMapping("/add")
+    public String addDichVu(Model model, @ModelAttribute(value="dichvu2")@Valid DichVu dichVu, BindingResult rs){
+        if(rs.hasErrors()){
+            return "dichvu";
+        }
+        if(!this.dichVuService.addOrUpdateDichVu(dichVu)){
+            model.addAttribute("errorMsg","ERROR404");
+            return "dichvu";
+        }
+        return "redirect:/DichVu/";
+        
+    }
 }

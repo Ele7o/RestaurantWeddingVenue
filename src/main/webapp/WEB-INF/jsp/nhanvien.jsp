@@ -50,7 +50,7 @@
             </div>
             <div style="margin-top: 20px;">
                 
-                <input type="submit" class="btn btn-danger"  value="<spring:message code="nhanvien.submit" />" />
+                <input type="submit" class="btn btn-danger"  value="<spring:message code="frm.submit" />" />
             </div>
             
                     
