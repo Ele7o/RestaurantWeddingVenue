@@ -22,20 +22,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author X_X
  */
 @Controller
-@RequestMapping("/login")
 public class DangNhapController {
     @Autowired 
     private TaiKhoanService taiKhoanService;
 
+    
 //    @InitBinder
 //    public void initBinder(WebDataBinder binder) {
 //        binder.setValidator(taiKhoanValidator);
 //    } 
     
-    @RequestMapping("/")
+    @RequestMapping("/login/")
     public String login(Model model) {
         model.addAttribute("login", new TaiKhoan()); 
         return "login";
+    }
+    
+    @GetMapping(value = "/register/")
+    public String registerView(Model model) {
+        model.addAttribute("regis", new TaiKhoan()); 
+        return "register";
+    }
+    
+    @PostMapping(value = "/register/")
+    public String registerProcess(Model model,
+        @ModelAttribute(name = "regis") @Valid TaiKhoan taiKhoan, BindingResult result) {
+        if (result.hasErrors()) {
+            return "register";
+        }
+        if (!this.taiKhoanService.addTaiKhoan(taiKhoan)) {
+            model.addAttribute("otherError", "Tao tác thêm tài khoản chưa thành công vui long thử lại");
+            return "register";
+        }
+        return "redirect:/login/";
     }
     
     

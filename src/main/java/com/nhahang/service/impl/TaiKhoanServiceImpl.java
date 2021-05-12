@@ -24,20 +24,24 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author X_X
  */
-@Service
+@Service("userDetailsService")
 public class TaiKhoanServiceImpl implements TaiKhoanService{
     @Autowired
     private TaiKhoanRepository taiKhoanRepository;
+    @Autowired 
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
     
     @Override
     public boolean addTaiKhoan(TaiKhoan taiKhoan) {
+        taiKhoan.setMatKhau(bCryptPasswordEncoder.encode(taiKhoan.getMatKhau())); 
         return this.taiKhoanRepository.addTaiKhoan(taiKhoan);
     }
     
-       @Override
-    public List<TaiKhoan> getTaiKhoans(String tenTaiKhoan) {
-        return  this.taiKhoanRepository.getTaiKhoans(tenTaiKhoan);
-    }
+    @Override
+    @Transactional(readOnly = true)
+    public TaiKhoan getTaiKhoanByTenTaiKhoan(String tenTaiKhoan) {
+        return taiKhoanRepository.getTaiKhoans(tenTaiKhoan).get(0);
+}
    
     @Override
     @Transactional(readOnly = true)

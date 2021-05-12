@@ -4,35 +4,54 @@
     Author     : X_X
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<c:url value="/login/" var="action" />
-
+<%@ taglib prefix="form" 
+uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" 
+uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" 
+uri="http://java.sun.com/jsp/jstl/core" %>
+<div class="alert alert-danger">
 <c:if test="${param.error != null}">
-    <div class="alert alert-danger">
-        Something wrong!!!
-    </div>
+<spring:message code="user.login.error1" />
 </c:if>
-
 <c:if test="${param.accessDenied != null}">
-    <div class="alert alert-danger">
-       Access Denied!!! 
-    </div>
+<spring:message code="user.login.error2" />
 </c:if>
+</div> 
 
-<div class="container" id="login-container">
-    <div id="login-block" >
-        <div class="row w-100" >
-            <p type="button" class="btn btn-primary col-12">Đăng nhập</p>
-        </div>
-        <form id="manager" method="POST" action="${action}">
-            <input name="tenTaiKhoan" class="form-control" type="text" placeholder="Tên đăng nhập">
-            <input name="matKhau" class="form-control" type="password" placeholder="Mật khẩu">
-            <input class="form-control btn btn-success" type="submit" value="Đăng Nhập">
-        </form>
-        <div>
-            <a href="#">Quên mật khẩu</a>
-        </div>
+<form:form action="/NhaHangTiecCuoi/login/" method="post" modelAttribute="login" enctype="multipart/form-data" >
+    <form:errors path="*" cssClass="text-danger" />
+        <div class="text-danger">${otherError}</div>
+    <div class="form-group">
+        <form:label path="tenTaiKhoan">Tên đăng nhập</form:label>
+        <form:input path="tenTaiKhoan" class="form-control" type="text" />
+        <form:errors path="tenTaiKhoan" cssClass="text-danger" />
     </div>
-</div>
+    <div class="form-group">
+        <form:label path="matKhau">Mật khẩu</form:label>
+        <form:input path="matKhau" class="form-control" type="text" />
+
+    </div>
+    <div class="form-group">
+        <input type="submit"value="<spring:message code="user.login" />"/>
+    </div>
+</form:form>
+
+<ul>
+<c:choose>
+<c:when test="${pageContext.request.userPrincipal.name == null}">
+<li>
+<a href="<c:url value="/register/" />">Đăng kí</a>
+</li>
+</c:when>
+<c:when test="${pageContext.request.userPrincipal.name != null}">
+<li>
+<a href="#">${pageContext.request.userPrincipal.name}</a>
+</li>
+<li>
+<a href="<c:url value="/logout" />">Logout</a>
+</li>
+</c:when>
+</c:choose>
+</ul>

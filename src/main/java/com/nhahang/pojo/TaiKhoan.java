@@ -24,9 +24,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="tai_khoan")
 public class TaiKhoan implements Serializable {
-    private static long serialVersionUID=3L;
-    private static String USER="ROLE_USER";
-    private static String ADMIN="ROLE_ADMIN";
+//    private static long serialVersionUID=3L;
+//    private static String USER="ROLE_USER";
+//    private static String ADMIN="ROLE_ADMIN";
     @Column(name="id_tai_khoan")
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -47,48 +47,6 @@ public class TaiKhoan implements Serializable {
     private String ghiChu;
     @Transient
     private String xacThucMatKhau;
-
-    /**
-     * @return the serialVersionUID
-     */
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    /**
-     * @param aSerialVersionUID the serialVersionUID to set
-     */
-    public static void setSerialVersionUID(long aSerialVersionUID) {
-        serialVersionUID = aSerialVersionUID;
-    }
-
-    /**
-     * @return the USER
-     */
-    public static String getUSER() {
-        return USER;
-    }
-
-    /**
-     * @param aUSER the USER to set
-     */
-    public static void setUSER(String aUSER) {
-        USER = aUSER;
-    }
-
-    /**
-     * @return the ADMIN
-     */
-    public static String getADMIN() {
-        return ADMIN;
-    }
-
-    /**
-     * @param aADMIN the ADMIN to set
-     */
-    public static void setADMIN(String aADMIN) {
-        ADMIN = aADMIN;
-    }
 
     /**
      * @return the idTaiKhoan

@@ -6,7 +6,6 @@
 package com.nhahang.service;
 
 import com.nhahang.pojo.TaiKhoan;
-import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -14,6 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @author X_X
  */
 public interface TaiKhoanService extends UserDetailsService{
-    List<TaiKhoan> getTaiKhoans(String tenTaiKhoan);
+    TaiKhoan getTaiKhoanByTenTaiKhoan(String tenTaiKhoan);
     boolean addTaiKhoan(TaiKhoan taiKhoan);
 }
