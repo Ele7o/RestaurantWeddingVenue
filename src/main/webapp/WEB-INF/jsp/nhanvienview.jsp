@@ -22,7 +22,7 @@
             <form:errors path="*" element="div" 
                         cssClass="alert alert-danger" />
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.idNghiepVu"/></label>
+                <label><spring:message code="nhanvien.idNhanVien"/></label>
                 <form:input cssClass="form-control-plaintext" path="idNhanVien" style="color: #E1477E" disabled="true" />
             </div>
 
@@ -31,7 +31,7 @@
                 <form:input cssClass="form-control-plaintext" path="tenNhanVien" style="color: #E1477E" disabled="true"/>
             </div>
             <div class="form-group"  style="margin-top: 20px;" >
-                <label><spring:message code="nhanvien.nghiepVu" /> </label>
+                <label><spring:message code="nghiepvu.tenNghiepVu" /> </label>
                 <form:select path="idNghiepVuForm" cssClass="form-control-plaintext" style="color: #E1477E" disabled="true">
                     <c:forEach items="${nghiepvu}" var="ngvu">
                         <c:if test="${ngvu.idNghiepVu == nhanvien.nghiepVu.idNghiepVu}">
@@ -45,7 +45,7 @@
                 </form:select>
         
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.ghiChu" /></label>
+                <label><spring:message code="frm.ghiChu" /></label>
                 <form:input cssClass="form-control-plaintext" style="color: #E1477E" path="ghiChu" disabled="true"/>
                   
             </div>

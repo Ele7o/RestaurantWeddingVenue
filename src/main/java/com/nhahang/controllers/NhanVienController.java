@@ -59,20 +59,7 @@ public class NhanVienController {
         return "ttnhanvien";
     }
     
-   
-//    @RequestMapping("/")
-//    public String addView(Model model,
-//            @RequestParam(name="idNhanVien",
-//                    required = false, 
-//                    defaultValue = "0") int idNhanVien){
-//        if(idNhanVien > 0){
-//            model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById(idNhanVien));
-//        }
-//        else{
-//            model.addAttribute("nhanvien", new NhanVien());
-//        }
-//        return "nhanvien";
-//    }
+  
     
     @PostMapping("/add")
     public String addNhanVien(Model model,

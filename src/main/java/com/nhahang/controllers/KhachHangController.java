@@ -35,6 +35,7 @@ public class KhachHangController {
     public String index(Model model, @RequestParam(name="idKhachHang",required = false)String idKhachHang){
         if(idKhachHang == null){
             model.addAttribute("khachhang",this.khachHangService.getKhachHang());
+            
         }
         else{
             model.addAttribute("khachhang",this.khachHangService.getKhachHangById(Integer.parseInt(idKhachHang)));

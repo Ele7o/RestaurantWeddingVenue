@@ -31,7 +31,7 @@
                 <form:input cssClass="form-control" path="tenNhanVien" />
             </div>
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.nghiepVu" /> </label>
+                <label><spring:message code="nghiepvu.tenNghiepVu" /> </label>
                 <form:select path="idNghiepVuForm" cssClass="form-control">
                     <c:forEach items="${nghiepvu}" var="ngvu">
                         <c:if test="${ngvu.idNghiepVu == nhanvien.nghiepVu.idNghiepVu}">
@@ -43,9 +43,9 @@
                         </c:if>
                     </c:forEach>
                 </form:select>
-        
+            </div>
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="nhanvien.ghiChu" /></label>
+                <label><spring:message code="frm.ghiChu" /></label>
                 <form:input cssClass="form-control" path="ghiChu" />
             </div>
             <div style="margin-top: 20px;">

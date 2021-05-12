@@ -13,6 +13,7 @@ import java.util.List;
  * @author btson
  */
 public interface DonHangRepository {
+    List<DonHang> getDonHangs(String kw);
     List<DonHang> getDonHangs();
     DonHang getDonHangById(int idDonHang);
     boolean addOrUpdateDonHang(DonHang donHang);

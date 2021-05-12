@@ -35,7 +35,7 @@
         <td>${dvu.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteDichVu(${dvu.idDichVu})">Xóa</fast-button>
-            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/dichvu" />/?idDichVu=${dvu.idDichVu}" 
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DichVuView" />/?idDichVu=${dvu.idDichVu}" 
                            >Cập nhật</a></fast-button>   
         </td>
     </tr>

@@ -32,11 +32,7 @@ public class NhanVien implements Serializable{
     private String tenNhanVien;
     @Transient
     private int idNghiepVuForm;
-
-//    @ManyToOne
-//    @JoinColumn(name ="id_nghiep_vu")
-//    private int idNghiepVu;
-
+    
     @ManyToOne
     @JoinColumn(name ="id_nghiep_vu")
 //    @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")

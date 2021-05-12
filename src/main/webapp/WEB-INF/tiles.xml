@@ -46,6 +46,10 @@
         <put-attribute name="title" value="Danh sach don hang"/>
         <put-attribute name="content" value="/WEB-INF/jsp/donhang.jsp"/>
     </definition>
+    <definition name="donhangview" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin don hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/donhangaod.jsp"/>
+    </definition>
     <definition name="khachhang" extends="baseLayout">
         <put-attribute name="title" value="Danh sach khach hang"/>
         <put-attribute name="content" value="/WEB-INF/jsp/khachhang.jsp"/>

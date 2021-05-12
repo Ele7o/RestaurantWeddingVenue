@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,7 +25,11 @@ public class PhanHoi {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idPhanHoi;
-    @Column(name = "id_don_hang")
+    
+//    @ManyToOne
+//    @JoinColumn(name = "id_don_hang")
+//    private DonHang donHang;
+    @Column(name="id_don_hang")
     private int idDonHang;
     @Column (name = "loai_phan_hoi")
     private String loaiPhanHoi;
@@ -49,16 +55,7 @@ public class PhanHoi {
     /**
      * @return the idDonHang
      */
-    public int getIdDonHang() {
-        return idDonHang;
-    }
-
-    /**
-     * @param idDonHang the idDonHang to set
-     */
-    public void setIdDonHang(int idDonHang) {
-        this.idDonHang = idDonHang;
-    }
+   
 
     /**
      * @return the loaiPhanHoi
@@ -100,6 +97,20 @@ public class PhanHoi {
      */
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    /**
+     * @return the idDonHang
+     */
+    public int getIdDonHang() {
+        return idDonHang;
+    }
+
+    /**
+     * @param idDonHang the idDonHang to set
+     */
+    public void setIdDonHang(int idDonHang) {
+        this.idDonHang = idDonHang;
     }
     
     

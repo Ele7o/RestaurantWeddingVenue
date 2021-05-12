@@ -7,7 +7,13 @@ package com.nhahang.repository.impl;
 
 import com.nhahang.pojo.DonHang;
 import com.nhahang.repository.DonHangRepository;
+import com.nhahang.service.KhachHangService;
+import com.nhahang.service.SanhService;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -24,7 +30,31 @@ import org.springframework.transaction.annotation.Transactional;
 public class DonHangRepositoryImpl implements DonHangRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private KhachHangService khachHangService;
     
+    @Autowired
+    private SanhService sanhService;
+    
+    @Override
+    @Transactional
+    public List<DonHang> getDonHangs(String kw){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<DonHang> query = builder.createQuery(DonHang.class);
+        Root root =query.from(DonHang.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("maDonHang").as(String.class), String.format("%%%s%%", kw));
+            
+            query  = query.where(p);
+          
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+   }
     @Override
     @Transactional
     public List<DonHang> getDonHangs(){
@@ -46,9 +76,14 @@ public class DonHangRepositoryImpl implements DonHangRepository{
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
             if(donHang.getIdDonHang() > 0){
+                
+                donHang.setKhachHang(this.khachHangService.getKhachHangById(donHang.getIdKhachHangForm()));
+                donHang.setSanh(this.sanhService.getSanhById(donHang.getIdSanhForm()));
                 s.update(donHang);
             }
             else{
+                donHang.setKhachHang(this.khachHangService.getKhachHangById(donHang.getIdKhachHangForm()));
+                donHang.setSanh(this.sanhService.getSanhById(donHang.getIdSanhForm()));
                 s.save(donHang);
             }
             return true;

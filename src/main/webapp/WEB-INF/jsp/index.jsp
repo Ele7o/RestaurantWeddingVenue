@@ -47,4 +47,7 @@
             <th ><a style="text-decoration: none; color: #E1477E" href="<c:url value="/NghiepVuList/"/>">Quan Ly Nghiep Vu </th>
             <th ><a style="text-decoration: none; color: #E1477E" href="<c:url value="/PhanHoi/"/>">Quan Ly Phan Hoi</th>
         </tr>
+        <tr>
+            <th ><a style="text-decoration: none;color: #E1477E " href="<c:url value="/DonHang/"/>">Quan Ly Don Hang </a></th>
+        </tr>
     </table>

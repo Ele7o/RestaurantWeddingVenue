@@ -5,13 +5,19 @@
  */
 package com.nhahang.controllers;
 
+import com.nhahang.pojo.DonHang;
 import com.nhahang.service.DonHangService;
+import com.nhahang.service.KhachHangService;
+import com.nhahang.service.SanhService;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,10 +31,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DonHangController {
     @Autowired
     private DonHangService donHangService;
-    
+    @Autowired
+    private KhachHangService khachHangService;
+    @Autowired
+    private SanhService sanhService;
     @ModelAttribute
     public void addAttributes(Model model,HttpSession session){
         model.addAttribute("donhang",this.donHangService.getDonHangs());
+        model.addAttribute("khachhang3",this.khachHangService.getKhachHang());
+        model.addAttribute("sanh3",this.sanhService.getSanh());
+        
     }
     
     @RequestMapping("/")
@@ -37,8 +49,9 @@ public class DonHangController {
             model.addAttribute("donhang",this.donHangService.getDonHangs());
         }
         else{
-            model.addAttribute("donhang",this.donHangService.getDonHangById(Integer.parseInt(idDonHang)));
+            model.addAttribute("donhang",this.khachHangService.getKhachHangById(Integer.parseInt(idDonHang)).getDonHang());
         }
         return "donhang";
     }
+    
 }

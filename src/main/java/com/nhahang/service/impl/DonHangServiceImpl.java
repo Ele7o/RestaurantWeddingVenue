@@ -23,7 +23,10 @@ public class DonHangServiceImpl implements DonHangService{
     
     @Autowired
     private DonHangRepository donHangRepository;
-    
+    @Override
+    public List<DonHang> getDonHangs(String kw){
+        return this.donHangRepository.getDonHangs(kw);
+    }
     @Override
     public List<DonHang> getDonHangs(){
         return this.donHangRepository.getDonHangs();

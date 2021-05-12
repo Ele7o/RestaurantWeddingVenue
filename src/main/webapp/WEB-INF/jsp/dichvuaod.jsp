@@ -28,21 +28,21 @@
             <form:errors path="*" element="div" 
                         cssClass="alert alert-danger" />
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.idSanh"/></label>-->
+                <label><spring:message code="dichvu.idDichVu"/></label>
                     <form:input cssClass="form-control" path="idDichVu"/>
             </div>
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.sucChua"/></label>-->
+                <label><spring:message code="dichvu.tenDichVu"/></label>
                 <form:input cssClass="form-control" path="tenDichVu"/>
             </div>
 
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.gia" /></label>-->
+                <label><spring:message code="dichvu.gia" /></label>
                 <form:input cssClass="form-control" path="gia" />
             </div>
         
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.ghiChu" /></label>-->
+                <label><spring:message code="frm.ghiChu" /></label>
                 <form:input cssClass="form-control" path="ghiChu" />
             </div>
             <div style="margin-top: 20px;">

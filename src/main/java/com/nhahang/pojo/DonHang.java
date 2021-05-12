@@ -6,12 +6,21 @@
 package com.nhahang.pojo;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -24,15 +33,24 @@ public class DonHang {
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     private int idDonHang;
-    @Column(name="id_khach_hang")
-    private int idKhachHang;
-    @Column(name="id_sanh")
-    private int idSanh;
+    @ManyToOne
+    @JoinColumn(name="id_khach_hang")
+    private KhachHang khachHang;
+    @Transient
+    private int idKhachHangForm;
+    @ManyToOne
+    @JoinColumn(name="id_sanh")
+    private Sanh sanh;
+    @Transient
+    private int idSanhForm;
     @Column(name="ngay_to_chuc")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayToChuc;
     @Column(name="ghi_chu")
     private String ghiChu;
 
+    
     /**
      * @return the idDonHang
      */
@@ -50,30 +68,7 @@ public class DonHang {
     /**
      * @return the idKhachHang
      */
-    public int getIdKhachHang() {
-        return idKhachHang;
-    }
 
-    /**
-     * @param idKhachHang the idKhachHang to set
-     */
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
-    }
-
-    /**
-     * @return the idSanh
-     */
-    public int getIdSanh() {
-        return idSanh;
-    }
-
-    /**
-     * @param idSanh the idSanh to set
-     */
-    public void setIdSanh(int idSanh) {
-        this.idSanh = idSanh;
-    }
 
     /**
      * @return the ngayToChuc
@@ -102,6 +97,68 @@ public class DonHang {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+
+    /**
+     * @return the phanHoi
+     */
+   
+
+    /**
+     * @return the khachHang
+     */
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    /**
+     * @param khachHang the khachHang to set
+     */
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    /**
+     * @return the idKhachHangForm
+     */
+    public int getIdKhachHangForm() {
+        return idKhachHangForm;
+    }
+
+    /**
+     * @param idKhachHangForm the idKhachHangForm to set
+     */
+    public void setIdKhachHangForm(int idKhachHangForm) {
+        this.idKhachHangForm = idKhachHangForm;
+    }
+
+    /**
+     * @return the sanh
+     */
+    public Sanh getSanh() {
+        return sanh;
+    }
+
+    /**
+     * @param sanh the sanh to set
+     */
+    public void setSanh(Sanh sanh) {
+        this.sanh = sanh;
+    }
+
+    /**
+     * @return the idSanhForm
+     */
+    public int getIdSanhForm() {
+        return idSanhForm;
+    }
+
+    /**
+     * @param idSanhForm the idSanhForm to set
+     */
+    public void setIdSanhForm(int idSanhForm) {
+        this.idSanhForm = idSanhForm;
+    }
+    
     
     
 }
