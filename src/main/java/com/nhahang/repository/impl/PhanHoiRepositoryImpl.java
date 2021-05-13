@@ -5,10 +5,16 @@
  */
 package com.nhahang.repository.impl;
 
+
 import com.nhahang.pojo.PhanHoi;
 import com.nhahang.repository.PhanHoiRepository;
+import com.nhahang.service.DonHangService;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +30,26 @@ import org.springframework.transaction.annotation.Transactional;
 public class PhanHoiRepositoryImpl implements PhanHoiRepository {
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private DonHangService donHangService;
+    @Override
+    @Transactional
+    public List<PhanHoi> getPhanHoi(String kw){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = s.getCriteriaBuilder();
 
+        CriteriaQuery<PhanHoi> query = builder.createQuery(PhanHoi.class);
+        Root root = query.from(PhanHoi.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("idPhanHoi").as(String.class), 
+                                            String.format("%%%s%%", kw));
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+    }
     @Override
     @Transactional
     public List<PhanHoi> getPhanHoi() {
@@ -46,9 +71,12 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         try{
             if(phanHoi.getIdPhanHoi() > 0){
+                
+                phanHoi.setDonHang(this.donHangService.getDonHangById(phanHoi.getIdDonHangForm()));
                 s.update(phanHoi);
             }
             else{
+                phanHoi.setDonHang(this.donHangService.getDonHangById(phanHoi.getIdDonHangForm()));
                 s.save(phanHoi);
             }
             return true;
@@ -64,7 +92,7 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
         try{
             Session s = this.sessionFactory.getObject().getCurrentSession();
             s.delete(s.get(PhanHoi.class, idPhanHoi));
-            
+
             return true;
         }catch(HibernateException e){
             e.printStackTrace();

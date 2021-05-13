@@ -5,11 +5,14 @@
  */
 package com.nhahang.pojo;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,7 +34,9 @@ public class Sanh {
     private String tinhTrang;
     @Column(name="ghi_chu")
     private String ghiChu;
-
+    
+    @OneToMany(mappedBy = "sanh",fetch = FetchType.EAGER)
+    private List<DonHang> donHang;
     /**
      * @return the idSanh
      */
@@ -101,6 +106,21 @@ public class Sanh {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+
+    /**
+     * @return the donHang
+     */
+    public List<DonHang> getDonHang() {
+        return donHang;
+    }
+
+    /**
+     * @param donHang the donHang to set
+     */
+    public void setDonHang(List<DonHang> donHang) {
+        this.donHang = donHang;
+    }
+    
     
     
 }

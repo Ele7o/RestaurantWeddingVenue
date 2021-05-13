@@ -5,6 +5,7 @@
  */
 package com.nhahang.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -28,29 +29,36 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name="don_hang")
-public class DonHang {
+public class DonHang implements Serializable{
     @Column(name="id_don_hang")
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     private int idDonHang;
-    @ManyToOne
+    
+    @ManyToOne  
     @JoinColumn(name="id_khach_hang")
     private KhachHang khachHang;
     @Transient
     private int idKhachHangForm;
+    
     @ManyToOne
     @JoinColumn(name="id_sanh")
     private Sanh sanh;
     @Transient
     private int idSanhForm;
+    
     @Column(name="ngay_to_chuc")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayToChuc;
     @Column(name="ghi_chu")
     private String ghiChu;
-
     
+    
+    @OneToMany(mappedBy = "donHang", fetch = FetchType.EAGER)
+    private List<PhanHoi> phanHoi;
+    
+  
     /**
      * @return the idDonHang
      */
@@ -157,6 +165,20 @@ public class DonHang {
      */
     public void setIdSanhForm(int idSanhForm) {
         this.idSanhForm = idSanhForm;
+    }
+
+    /**
+     * @return the phanHoi
+     */
+    public List<PhanHoi> getPhanHoi() {
+        return phanHoi;
+    }
+
+    /**
+     * @param phanHoi the phanHoi to set
+     */
+    public void setPhanHoi(List<PhanHoi> phanHoi) {
+        this.phanHoi = phanHoi;
     }
     
     

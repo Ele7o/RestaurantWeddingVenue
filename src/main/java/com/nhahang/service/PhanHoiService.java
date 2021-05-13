@@ -13,6 +13,7 @@ import java.util.List;
  * @author X_X
  */
 public interface PhanHoiService {
+    List<PhanHoi> getPhanHoi(String kw);
     List<PhanHoi> getPhanHoi();
     PhanHoi getPhanHoiById(int idPhanHoi);
     boolean addOrUpdatePhanHoi(PhanHoi phanHoi);

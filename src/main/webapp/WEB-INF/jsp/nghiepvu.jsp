@@ -15,6 +15,10 @@
 <h1 >DANH SÁCH NHÂN VIÊN</h1>
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nhanvien" />/?idNhanVien=0" 
                            >+</a></fast-button>
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/" 
+                           >Tất cả</a></fast-button>      
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/?idNghiepVu=2" 
+                           >Bảo vệ</a></fast-button>                           
 
 
 <table id="table"  class="table table-borderder" >

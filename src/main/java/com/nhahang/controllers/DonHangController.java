@@ -54,4 +54,15 @@ public class DonHangController {
         return "donhang";
     }
     
+    @RequestMapping("/sanh/")
+    public String index2(Model model, @RequestParam(name="idSanh",required = false)String idSanh){
+        if(idSanh==null){
+            model.addAttribute("donhang",this.donHangService.getDonHangs());
+        }
+        else{
+            model.addAttribute("donhang",this.sanhService.getSanhById(Integer.parseInt(idSanh)).getDonHang());
+        }
+        return "donhang";
+    }
+    
 }

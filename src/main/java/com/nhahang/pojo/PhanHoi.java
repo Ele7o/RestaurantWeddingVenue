@@ -5,6 +5,7 @@
  */
 package com.nhahang.pojo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -20,23 +22,26 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="phan_hoi")
-public class PhanHoi {
+public class PhanHoi implements Serializable{
     @Column(name = "id_phan_hoi")
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idPhanHoi;
     
-//    @ManyToOne
-//    @JoinColumn(name = "id_don_hang")
-//    private DonHang donHang;
-    @Column(name="id_don_hang")
-    private int idDonHang;
+    @ManyToOne
+    @JoinColumn(name = "id_don_hang")
+    private DonHang donHang;
+    @Transient
+    private int idDonHangForm;
+   
     @Column (name = "loai_phan_hoi")
     private String loaiPhanHoi;
     @Column(name="noi_dung")
     private String noiDung;
     @Column(name="ghi_chu")
     private String ghiChu;
+    
+    
 
     /**
      * @return the idPhanHoi
@@ -102,16 +107,36 @@ public class PhanHoi {
     /**
      * @return the idDonHang
      */
-    public int getIdDonHang() {
-        return idDonHang;
+
+
+    /**
+     * @return the donHang
+     */
+    public DonHang getDonHang() {
+        return donHang;
     }
 
     /**
-     * @param idDonHang the idDonHang to set
+     * @param donHang the donHang to set
      */
-    public void setIdDonHang(int idDonHang) {
-        this.idDonHang = idDonHang;
+    public void setDonHang(DonHang donHang) {
+        this.donHang = donHang;
     }
+
+    /**
+     * @return the idDonHangForm
+     */
+    public int getIdDonHangForm() {
+        return idDonHangForm;
+    }
+
+    /**
+     * @param idDonHangForm the idDonHangForm to set
+     */
+    public void setIdDonHangForm(int idDonHangForm) {
+        this.idDonHangForm = idDonHangForm;
+    }
+    
     
     
 }
