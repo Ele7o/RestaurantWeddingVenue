@@ -39,6 +39,8 @@
             <fast-button href="#" appearance="outline"  onclick="deleteNghiepVu(${nvu.idNghiepVu})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVuListView" />/?idNghiepVu=${nvu.idNghiepVu}" 
                            >Cập nhật</a></fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/?idNghiepVu=${nvu.idNghiepVu}" 
+                           >Danh sách nhân viên</a></fast-button>
 
             
         </td>

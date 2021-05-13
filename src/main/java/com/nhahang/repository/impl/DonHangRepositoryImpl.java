@@ -47,7 +47,7 @@ public class DonHangRepositoryImpl implements DonHangRepository{
         query.select(root);
         
         if(kw != null && !kw.isEmpty()){
-            Predicate p = builder.like(root.get("maDonHang").as(String.class), String.format("%%%s%%", kw));
+            Predicate p = builder.like(root.get("idDonHang").as(String.class), String.format("%%%s%%", kw));
             
             query  = query.where(p);
           

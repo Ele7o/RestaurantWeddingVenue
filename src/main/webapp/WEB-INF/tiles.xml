@@ -82,5 +82,17 @@
         <put-attribute name="title" value="Thong tin nhan vien"/>
         <put-attribute name="content" value="/WEB-INF/jsp/nhanvienview.jsp"/>
     </definition>
+    <definition name="donhang_dichvu" extends="baseLayout">
+        <put-attribute name="title" value="Dich vu don hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/donhang_dichvu.jsp"/>
+    </definition>
+    <definition name="dhdvview" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin dich vu don hang"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/donhang_dichvuaod.jsp"/>
+    </definition>
+    <definition name="nhanvien_donhang" extends="baseLayout">
+        <put-attribute name="title" value="danh sach nhan vien"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nhanvien_donhang.jsp"/>
+    </definition>
    
 </tiles-definitions>

@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -23,11 +26,21 @@ public class DonHang_DichVu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDonHangDichVu;
-    @Column(name="id_don_hang")
-    private int idDonHang;
-    @Column(name="id_dich_vu")
-    private int idDichVu;
-    @Column(name="id_so_luong")
+    
+    
+    @ManyToOne
+    @JoinColumn(name="id_don_hang")
+    private DonHang donHang2;
+    @Transient
+    private int idDonHangForm2;
+    
+    @ManyToOne
+    @JoinColumn(name="id_dich_vu")
+    private DichVu dichVu2;
+    @Transient
+    private int idDichVuForm2;
+    
+    @Column(name="so_luong")
     private int soLuong;
     @Column(name="tam_tinh")
     private double tamTinh;
@@ -37,30 +50,7 @@ public class DonHang_DichVu {
     /**
      * @return the idDonHang
      */
-    public int getIdDonHang() {
-        return idDonHang;
-    }
-
-    /**
-     * @param idDonHang the idDonHang to set
-     */
-    public void setIdDonHang(int idDonHang) {
-        this.idDonHang = idDonHang;
-    }
-
-    /**
-     * @return the idDichVu
-     */
-    public int getIdDichVu() {
-        return idDichVu;
-    }
-
-    /**
-     * @param idDichVu the idDichVu to set
-     */
-    public void setIdDichVu(int idDichVu) {
-        this.idDichVu = idDichVu;
-    }
+    
 
     /**
      * @return the soLuong
@@ -102,6 +92,91 @@ public class DonHang_DichVu {
      */
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
+    }
+
+    /**
+     * @return the idDonHangDichVu
+     */
+    public int getIdDonHangDichVu() {
+        return idDonHangDichVu;
+    }
+
+    /**
+     * @param idDonHangDichVu the idDonHangDichVu to set
+     */
+    public void setIdDonHangDichVu(int idDonHangDichVu) {
+        this.idDonHangDichVu = idDonHangDichVu;
+    }
+
+    /**
+     * @return the donHang
+     */
+    public DonHang getDonHang2() {
+        return donHang2;
+    }
+
+    /**
+     * @param donHang the donHang to set
+     */
+    public void setDonHang2(DonHang donHang) {
+        this.donHang2 = donHang;
+    }
+
+    /**
+     * @return the idDonHangForm
+     */
+    
+
+    /**
+     * @return the dichVu
+     */
+    
+
+    /**
+     * @return the idDichVuForm
+     */
+  
+
+    /**
+     * @return the dichVu2
+     */
+    public DichVu getDichVu2() {
+        return dichVu2;
+    }
+
+    /**
+     * @param dichVu2 the dichVu2 to set
+     */
+    public void setDichVu2(DichVu dichVu2) {
+        this.dichVu2 = dichVu2;
+    }
+
+    /**
+     * @return the idDonHangForm2
+     */
+    public int getIdDonHangForm2() {
+        return idDonHangForm2;
+    }
+
+    /**
+     * @param idDonHangForm2 the idDonHangForm2 to set
+     */
+    public void setIdDonHangForm2(int idDonHangForm2) {
+        this.idDonHangForm2 = idDonHangForm2;
+    }
+
+    /**
+     * @return the idDichVuForm2
+     */
+    public int getIdDichVuForm2() {
+        return idDichVuForm2;
+    }
+
+    /**
+     * @param idDichVuForm2 the idDichVuForm2 to set
+     */
+    public void setIdDichVuForm2(int idDichVuForm2) {
+        this.idDichVuForm2 = idDichVuForm2;
     }
     
     

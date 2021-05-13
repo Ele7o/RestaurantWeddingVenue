@@ -7,9 +7,11 @@ package com.nhahang.controllers;
 
 import com.nhahang.service.DichVuService;
 import com.nhahang.service.DonHangService;
+import com.nhahang.service.DonHang_DichVuService;
 import com.nhahang.service.KhachHangService;
 import com.nhahang.service.NghiepVuService;
 import com.nhahang.service.NhanVienService;
+import com.nhahang.service.NhanVien_DonHangService;
 import com.nhahang.service.PhanHoiService;
 import com.nhahang.service.SanhService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,10 @@ public class ApiNhanVienController {
     private PhanHoiService phanHoiService;
     @Autowired
     private SanhService sanhService;
+    @Autowired
+    private DonHang_DichVuService donHang_dichVuService;
+    @Autowired
+    private NhanVien_DonHangService nhanVien_donHangService;
     
     @DeleteMapping("/nhanvien/{idNhanVien}")
     @ResponseStatus(HttpStatus.OK)
@@ -82,5 +88,15 @@ public class ApiNhanVienController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteSanh(@PathVariable(name="idSanh")int idSanh){
         this.sanhService.deleteSanh(idSanh);
+    }
+    @DeleteMapping("/dhdv/{idDonHangDichVu}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteDonHangDichVu(@PathVariable(name="idDonHangDichVu")int idDonHangDichVu){
+        this.donHang_dichVuService.deleteDonHangDichVu(idDonHangDichVu);
+    }
+    @DeleteMapping("/nvdh/{idNhanVienDonHang}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteNhanVienDonHang(@PathVariable(name="idNhanVienDonHang")int idNhanVienDonHang){
+        this.nhanVien_donHangService.deleteNhanVienDonHang(idNhanVienDonHang);
     }
 }

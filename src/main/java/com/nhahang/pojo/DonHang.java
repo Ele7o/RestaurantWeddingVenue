@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -54,10 +56,17 @@ public class DonHang implements Serializable{
     @Column(name="ghi_chu")
     private String ghiChu;
     
-    
-    @OneToMany(mappedBy = "donHang", fetch = FetchType.EAGER)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "donHang")
     private List<PhanHoi> phanHoi;
     
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "donHang2")
+    private List<DonHang_DichVu> donHang_dichVu;
+    
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "donHang3")
+    private List<NhanVien_DonHang> nhanVien_DonHang;
   
     /**
      * @return the idDonHang
@@ -179,6 +188,34 @@ public class DonHang implements Serializable{
      */
     public void setPhanHoi(List<PhanHoi> phanHoi) {
         this.phanHoi = phanHoi;
+    }
+
+    /**
+     * @return the donHang_dichVu
+     */
+    public List<DonHang_DichVu> getDonHang_dichVu() {
+        return donHang_dichVu;
+    }
+
+    /**
+     * @param donHang_dichVu the donHang_dichVu to set
+     */
+    public void setDonHang_dichVu(List<DonHang_DichVu> donHang_dichVu) {
+        this.donHang_dichVu = donHang_dichVu;
+    }
+
+    /**
+     * @return the nhanVien_DonHang
+     */
+    public List<NhanVien_DonHang> getNhanVien_DonHang() {
+        return nhanVien_DonHang;
+    }
+
+    /**
+     * @param nhanVien_DonHang the nhanVien_DonHang to set
+     */
+    public void setNhanVien_DonHang(List<NhanVien_DonHang> nhanVien_DonHang) {
+        this.nhanVien_DonHang = nhanVien_DonHang;
     }
     
     

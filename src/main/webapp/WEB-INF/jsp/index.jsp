@@ -49,5 +49,7 @@
         </tr>
         <tr>
             <th ><a style="text-decoration: none;color: #E1477E " href="<c:url value="/DonHang/"/>">Quan Ly Don Hang </a></th>
+            <th ><a style="text-decoration: none;color: #E1477E " href="<c:url value="/dhdv/"/>">DonHang_DichVu </a></th>
+            <th ><a style="text-decoration: none;color: #E1477E " href="<c:url value="/nvdh/"/>">NhanVien_DonHang </a></th>
         </tr>
     </table>

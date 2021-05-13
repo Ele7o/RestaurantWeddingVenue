@@ -12,6 +12,7 @@ import java.util.List;
  * @author X_X
  */
 public interface NhanVienService {
+    List<NhanVien> getNhanViens();
     List<NhanVien> getNhanViens(String kw);
     boolean deleteNhanVien(int idNhanVien);
     boolean addOrUpdateNhanVien(NhanVien nhanvien);

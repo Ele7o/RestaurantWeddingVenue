@@ -37,6 +37,8 @@
             <fast-button href="#" appearance="outline"  onclick="deleteKhachHang(${khang.idKhachHang})">Xóa</fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/KhachHangView" />/?idKhachHang=${khang.idKhachHang}" 
                            >Cập nhật</a></fast-button>   
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHang/kh" />/?idKhachHang=${khang.idKhachHang}" 
+                           >Lịch sử đặt tiệc</a></fast-button>   
         </td>
     </tr>
     </c:forEach>

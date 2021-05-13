@@ -55,13 +55,16 @@ public class DonHangController {
     }
     
     @RequestMapping("/sanh/")
-    public String index2(Model model, @RequestParam(name="idSanh",required = false)String idSanh){
-        if(idSanh==null){
-            model.addAttribute("donhang",this.donHangService.getDonHangs());
-        }
-        else{
-            model.addAttribute("donhang",this.sanhService.getSanhById(Integer.parseInt(idSanh)).getDonHang());
-        }
+    public String index2(Model model, @RequestParam(name="idSanh",required = true)String idSanh){
+
+        
+            model.addAttribute("donhang",this.sanhService.getSanhById(Integer.parseInt(idSanh)));
+        
+             return "donhang";
+    }
+    @RequestMapping("/kh/")
+    public String index3(Model model, @RequestParam(name="idKhachHang",required = true)String idKhachHang){
+        model.addAttribute("donhang",this.khachHangService.getKhachHangById(Integer.parseInt(idKhachHang)).getDonHang());
         return "donhang";
     }
     

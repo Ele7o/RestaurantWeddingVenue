@@ -34,6 +34,15 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
     @Autowired
     private NghiepVuRepository nghiepVuRepo;
     
+    
+    @Override
+    @Transactional
+    public List<NhanVien> getNhanViens() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        Query q = s.createQuery("From NhanVien");
+        return q.getResultList();
+    }
+    
     @Override
     @Transactional
     public List<NhanVien> getNhanViens(String kw){
@@ -94,4 +103,6 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
         
         return s.get(NhanVien.class, idNhanVien);
     }
+
+    
 }

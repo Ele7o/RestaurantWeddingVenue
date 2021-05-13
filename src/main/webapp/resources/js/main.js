@@ -128,4 +128,39 @@ function deleteSanh(idSanh) {
         })
     }
 }
+function deleteDonHangDichVu(idDonHangDichVu) {
+    if (confirm("Bạn chắc chắn xóa không?") == true) {
+        fetch(`/NhaHangTiecCuoi/api/dhdv/${idDonHangDichVu}`, {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function(res) {
+            if (res.status == 200) {
+                let d = document.getElementById(`dhdv${idDonHangDichVu}`);
+                d.style.display = "none";
+            } else {
+                alert("Something wrong!!!");
+            }
+        })
+    }
+}
+function deleteNhanVienDonHang(idNhanVienDonHang) {
+    if (confirm("Bạn chắc chắn xóa không?") == true) {
+        fetch(`/NhaHangTiecCuoi/api/nvdh/${idNhanVienDonHang}`, {
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function(res) {
+            if (res.status == 200) {
+                let d = document.getElementById(`nvdh${idNhanVienDonHang}`);
+                d.style.display = "none";
+            } else {
+                alert("Something wrong!!!");
+            }
+        })
+    }
+}
+
 

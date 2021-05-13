@@ -6,13 +6,16 @@
 package com.nhahang.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -37,6 +40,10 @@ public class NhanVien implements Serializable{
     @JoinColumn(name ="id_nghiep_vu")
 //    @JoinColumn(name ="id_nghiep_vu", referencedColumnName = "id_nghiep_vu")
     private NghiepVu nghiepVu;
+    
+    @OneToMany(mappedBy = "nhanVien2", fetch = FetchType.EAGER)
+    private List<NhanVien_DonHang> nhanVien_donHang;
+    
 
     @Column(name = "ghi_chu")
     private String ghiChu;
@@ -103,6 +110,20 @@ public class NhanVien implements Serializable{
 
     public void setIdNghiepVuForm(int idNghiepVuForm) {
         this.idNghiepVuForm = idNghiepVuForm;
+    }
+
+    /**
+     * @return the nhanVien_donHang
+     */
+    public List<NhanVien_DonHang> getNhanVien_donHang() {
+        return nhanVien_donHang;
+    }
+
+    /**
+     * @param nhanVien_donHang the nhanVien_donHang to set
+     */
+    public void setNhanVien_donHang(List<NhanVien_DonHang> nhanVien_donHang) {
+        this.nhanVien_donHang = nhanVien_donHang;
     }
     
     
