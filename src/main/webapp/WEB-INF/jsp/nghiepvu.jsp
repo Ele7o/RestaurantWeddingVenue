@@ -40,6 +40,8 @@
                            >Cập nhật</a></fast-button>
             <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nhanvien/info" />/?idNhanVien=${nvien.idNhanVien}" 
                            >Thông tin</a></fast-button>
+            <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nvdh/nhanvien" />/?idNhanVien=${nvien.idNhanVien}" 
+                           >Các sảnh được phân bố </a></fast-button>
             
         </td>
     </tr>

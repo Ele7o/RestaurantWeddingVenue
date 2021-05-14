@@ -25,6 +25,14 @@ public class KhachHangServiceImpl implements KhachHangService{
     public List<KhachHang> getKhachHang() {
         return this.khachHangRepository.getKhachHang(); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    public List<KhachHang> getKhachHangById2(String kw) {
+        return this.khachHangRepository.getKhachHangById2(kw); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public List<KhachHang> getKhachHangByName(String kw){
+        return this.khachHangRepository.getKhachHangByName(kw);
+    }
 
     @Override
     public KhachHang getKhachHangById(int idKhachHang) {

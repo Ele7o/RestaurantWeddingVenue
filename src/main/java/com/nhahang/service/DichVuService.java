@@ -14,6 +14,8 @@ import java.util.List;
  */
 public interface DichVuService {
     List<DichVu> getDichVus();
+    List<DichVu> getDichVuById2(String kw);
+    List<DichVu> getDichVuByName(String kw);
     DichVu getDichVuById(int idDichVu);
     boolean addOrUpdateDichVu(DichVu dichVu);
     boolean deleteDichVu(int idDichVu);

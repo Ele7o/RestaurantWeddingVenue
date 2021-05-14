@@ -49,7 +49,7 @@ public class DonHangController {
             model.addAttribute("donhang",this.donHangService.getDonHangs());
         }
         else{
-            model.addAttribute("donhang",this.khachHangService.getKhachHangById(Integer.parseInt(idDonHang)).getDonHang());
+            model.addAttribute("donhang",this.donHangService.getDonHangs(idDonHang));
         }
         return "donhang";
     }
@@ -62,10 +62,11 @@ public class DonHangController {
         
              return "donhang";
     }
+    //Repeat
     @RequestMapping("/kh/")
     public String index3(Model model, @RequestParam(name="idKhachHang",required = true)String idKhachHang){
-        model.addAttribute("donhang",this.khachHangService.getKhachHangById(Integer.parseInt(idKhachHang)).getDonHang());
-        return "donhang";
+            model.addAttribute("donhang",this.khachHangService.getKhachHangById(Integer.parseInt(idKhachHang)).getDonHang());
+            return "donhang";
     }
     
 }

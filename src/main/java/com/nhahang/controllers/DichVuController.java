@@ -41,7 +41,17 @@ public class DichVuController {
             model.addAttribute("dichvu",this.dichVuService.getDichVus());
         }
         else{
-            model.addAttribute("dichvu",this.dichVuService.getDichVuById(Integer.parseInt(idDichVu)));
+            model.addAttribute("dichvu",this.dichVuService.getDichVuById2(idDichVu));
+        }
+        return "dichvu";
+    }
+    @RequestMapping("/tenDv")
+    public String index2(Model model,@RequestParam(name="tenDv",required = true)String tenDv){
+        if(tenDv==null){
+            return "redirect:/DichVu/";
+        }
+        else{
+            model.addAttribute("dichvu",this.dichVuService.getDichVuByName(tenDv));
         }
         return "dichvu";
     }

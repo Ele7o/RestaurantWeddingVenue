@@ -25,6 +25,14 @@ public class DichVuServiceImpl implements DichVuService{
     public List<DichVu> getDichVus( ){
         return this.dichVuRepository.getDichVus();
     }
+    @Override
+    public List<DichVu> getDichVuByName(String kw){
+        return this.dichVuRepository.getDichVuByName(kw);
+    }
+    @Override
+    public List<DichVu> getDichVuById2( String kw){
+        return this.dichVuRepository.getDichVuById2(kw);
+    }
     
     @Override
     public DichVu getDichVuById (int idDichVu){

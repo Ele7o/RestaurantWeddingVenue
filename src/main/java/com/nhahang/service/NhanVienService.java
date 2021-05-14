@@ -14,6 +14,7 @@ import java.util.List;
 public interface NhanVienService {
     List<NhanVien> getNhanViens();
     List<NhanVien> getNhanViens(String kw);
+    List<NhanVien> getNhanVienById2(String kw);
     boolean deleteNhanVien(int idNhanVien);
     boolean addOrUpdateNhanVien(NhanVien nhanvien);
     NhanVien getNhanVienById(int idNhanVien);

@@ -29,6 +29,10 @@ public class NhanVienServiceImpl implements NhanVienService{
     public List<NhanVien> getNhanViens(String kw){
         return this.nhanVienRepository.getNhanViens(kw);
     }
+    @Override
+    public List<NhanVien> getNhanVienById2(String kw){
+        return this.nhanVienRepository.getNhanVienById2(kw);
+    }
 
     @Override
     public boolean deleteNhanVien(int idNhanVien) {

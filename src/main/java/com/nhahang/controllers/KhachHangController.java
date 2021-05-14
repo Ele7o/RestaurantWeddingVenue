@@ -38,11 +38,16 @@ public class KhachHangController {
             
         }
         else{
-            model.addAttribute("khachhang",this.khachHangService.getKhachHangById(Integer.parseInt(idKhachHang)));
+            model.addAttribute("khachhang",this.khachHangService.getKhachHangById2(idKhachHang));
         }
         return "khachhang";
     }
-   
+    @RequestMapping("/tenKh")
+    public String index2(Model model, @RequestParam(name="tenKh",required = true)String tenKhachHang){
+        model.addAttribute("khachhang",this.khachHangService.getKhachHangByName(tenKhachHang));
+        return "khachhang";
+    }
+    
     
     
 }

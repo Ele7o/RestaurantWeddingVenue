@@ -24,6 +24,7 @@
         <th>Mã</th>
         <th>Tên nhân viên</th>
         <th>Đơn hàng</th>
+        <th>Sảnh</th>
         <th>Ghi chú</th>
         <th></th>
         
@@ -33,6 +34,7 @@
         <td>${nvdhang.idNhanVienDonHang}</td> 
         <td>${nvdhang.nhanVien2.tenNhanVien}</td> 
         <td>${nvdhang.donHang3.idDonHang}</td>
+        <td>${nvdhang.donHang3.sanh.idSanh}</td>
         <td>${nvdhang.ghiChu}</td>
         <td>
             <fast-button href="#" appearance="outline"  onclick="deleteNhanVienDonHang(${nvdhang.idNhanVienDonHang})">Xóa</fast-button>

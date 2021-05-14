@@ -61,6 +61,24 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
         Query q = session.createQuery(query);
         return q.getResultList();
     }
+    @Override
+    @Transactional
+    public List<NhanVien> getNhanVienById2(String kw){
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<NhanVien> query = builder.createQuery(NhanVien.class);
+        Root root = query.from(NhanVien.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("idNhanVien").as(String.class), 
+                                            String.format("%%%s%%", kw));
+            query = query.where(p);
+        }
+        Query q = session.createQuery(query);
+        return q.getResultList();
+    }
     
     @Override
     @Transactional

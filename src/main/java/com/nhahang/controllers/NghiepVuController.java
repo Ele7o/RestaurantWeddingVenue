@@ -58,10 +58,15 @@ public class NghiepVuController {
         }
         return "nghiepvu";
     }
-    @RequestMapping("/idNV/")
-    public String index2(Model model, @RequestParam(name="idNV",required = true)String idNhanVien){
-        int id= Integer.parseInt(idNhanVien);
-        model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById(id));
+    @RequestMapping("/idNv/")
+    public String index2(Model model, @RequestParam(name="idNv",required = true)String idNhanVien){
+        
+        model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById2(idNhanVien));
+        return "nghiepvu";
+    }
+    @RequestMapping("/tenNV")
+    public String index3(Model model, @RequestParam(name="tenNV",required = true)String tenNhanVien){
+        model.addAttribute("nhanvien",this.nhanVienService.getNhanViens(tenNhanVien));
         return "nghiepvu";
     }
 }

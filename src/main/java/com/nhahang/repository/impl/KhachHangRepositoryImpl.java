@@ -9,6 +9,10 @@ import com.nhahang.pojo.KhachHang;
 import com.nhahang.repository.KhachHangRepository;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,42 @@ public class KhachHangRepositoryImpl implements KhachHangRepository{
         Query q = s.createQuery("From KhachHang");
         return q.getResultList(); //To change body of generated methods, choose Tools | Templates.
     }
-
+    @Override
+    @Transactional
+    public List<KhachHang> getKhachHangById2(String kw){
+         Session s = this.sessionFactory.getObject().getCurrentSession();
+       
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<KhachHang> query = builder.createQuery(KhachHang.class);
+        Root root= query.from(KhachHang.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("idKhachHang").as(String.class), String.format("%%%s%%",kw));
+            
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+    }
+    @Override
+    @Transactional
+    public List<KhachHang> getKhachHangByName(String kw){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+       
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<KhachHang> query = builder.createQuery(KhachHang.class);
+        Root root= query.from(KhachHang.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("tenKhachHang").as(String.class), String.format("%%%s%%",kw));
+            
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+    }
     @Override
     @Transactional
     public KhachHang getKhachHangById(int idKhachHang) {

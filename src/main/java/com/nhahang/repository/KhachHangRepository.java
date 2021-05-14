@@ -14,7 +14,10 @@ import java.util.List;
  */
 public interface KhachHangRepository {
     List<KhachHang> getKhachHang();
+    List<KhachHang> getKhachHangById2(String kw);
+    List<KhachHang> getKhachHangByName(String kw);
     KhachHang getKhachHangById(int idKhachHang);
+   
     boolean addOrUpdateKhachHang(KhachHang khachHang);
     boolean deleteKhachHang(int idKhachHang);
 }

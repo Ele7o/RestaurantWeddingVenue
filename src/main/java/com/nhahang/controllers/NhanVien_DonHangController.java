@@ -49,5 +49,14 @@ public class NhanVien_DonHangController {
         }
         return "nhanvien_donhang";
     }
+    @RequestMapping("/nhanvien")
+    public String index2(Model model,@RequestParam(name="idNhanVien",required = true)String idNhanVien){
+        if(idNhanVien == null)
+            return "redirect:/nvdh/";
+        else{
+            model.addAttribute("nvdh",this.nhanVienService.getNhanVienById(Integer.parseInt(idNhanVien)).getNhanVien_donHang());
+        }
+        return "nhanvien_donhang";
+    }
     
 }
