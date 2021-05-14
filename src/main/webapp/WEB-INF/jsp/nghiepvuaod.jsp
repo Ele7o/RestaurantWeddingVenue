@@ -29,16 +29,16 @@
             <form:errors path="*" element="div" 
                         cssClass="alert alert-danger" />
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.idSanh"/></label>-->
+                <label><spring:message code="nghiepvu.idNghiepVu"/></label>
                     <form:input cssClass="form-control" path="idNghiepVu"/>
             </div>
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.sucChua"/></label>-->
+                <label><spring:message code="nghiepvu.tenNghiepVu"/></label>
                 <form:input cssClass="form-control" path="tenNghiepVu"/>
             </div>
 
             <div class="form-group"  style="margin-top: 20px;">
-<!--                <label><spring:message code="sanh.gia" /></label>-->
+                <label><spring:message code="frm.ghiChu" /></label>
                 <form:input cssClass="form-control" path="ghiChu" />
             </div>
         

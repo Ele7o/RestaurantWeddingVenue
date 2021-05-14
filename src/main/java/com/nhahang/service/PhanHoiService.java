@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface PhanHoiService {
     List<PhanHoi> getPhanHoi(String kw);
+    List<PhanHoi> getPhanHoiByType(String kw);
     List<PhanHoi> getPhanHoi();
     PhanHoi getPhanHoiById(int idPhanHoi);
     boolean addOrUpdatePhanHoi(PhanHoi phanHoi);

@@ -63,6 +63,13 @@ public class PhanHoiController {
         
         return "phanhoi";
     }
+    @RequestMapping("/loai")
+    public String index3(Model model, @RequestParam(name="loai",required = true)String loai){
+        if(loai != null){
+            model.addAttribute("phanhoi",this.phanHoiService.getPhanHoiByType(loai));
+        }
+        return "phanhoi";
+    }
     
     
 }

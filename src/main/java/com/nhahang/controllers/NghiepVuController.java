@@ -36,6 +36,8 @@ public class NghiepVuController {
     @ModelAttribute
     public void addAttributes(Model model,HttpSession session){
         model.addAttribute("nghiepvu",this.nghiepVuService.getNghiepVu());
+        model.addAttribute("nhanvien",this.nhanVienService.getNhanViens());
+        
     }
     @RequestMapping("/info")
     public String addViewInfo(Model model,
@@ -54,6 +56,12 @@ public class NghiepVuController {
         else{
             model.addAttribute("nhanvien",this.nghiepVuService.getNghiepVuById(Integer.parseInt(idNghiepVu)).getNhanVien());
         }
+        return "nghiepvu";
+    }
+    @RequestMapping("/idNV/")
+    public String index2(Model model, @RequestParam(name="idNV",required = true)String idNhanVien){
+        int id= Integer.parseInt(idNhanVien);
+        model.addAttribute("nhanvien",this.nhanVienService.getNhanVienById(id));
         return "nghiepvu";
     }
 }

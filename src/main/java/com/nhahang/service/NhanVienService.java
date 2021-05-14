@@ -17,4 +17,5 @@ public interface NhanVienService {
     boolean deleteNhanVien(int idNhanVien);
     boolean addOrUpdateNhanVien(NhanVien nhanvien);
     NhanVien getNhanVienById(int idNhanVien);
+    NhanVien getNhanVienByName (String tenNhanVien);
 }

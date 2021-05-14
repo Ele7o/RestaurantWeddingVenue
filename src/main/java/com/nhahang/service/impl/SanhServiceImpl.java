@@ -29,7 +29,10 @@ public class SanhServiceImpl implements SanhService {
     public List<Sanh> getSanh(String idSanh) {
         return this.sanhRepository.getSanh(idSanh); //To change body of generated methods, choose Tools | Templates.
     }
-
+    @Override
+    public List<Sanh> getSanhByState(String idSanh){
+        return this.sanhRepository.getSanhByState(idSanh);
+    }
     @Override
     public Sanh getSanhById(int idSanh) {
         return this.sanhRepository.getSanhById(idSanh); //To change body of generated methods, choose Tools | Templates.

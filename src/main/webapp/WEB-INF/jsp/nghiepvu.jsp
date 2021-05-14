@@ -16,10 +16,11 @@
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nhanvien" />/?idNhanVien=0" 
                            >+</a></fast-button>
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/" 
-                           >Tất cả</a></fast-button>      
-<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/?idNghiepVu=2" 
-                           >Bảo vệ</a></fast-button>                           
-
+                           >Tất cả</a></fast-button>                           
+<c:forEach items="${nghiepvu}" var="nvu">
+    <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/NghiepVu" />/?idNghiepVu=${nvu.idNghiepVu}" 
+                           >${nvu.tenNghiepVu}</a></fast-button>   
+</c:forEach>
 
 <table id="table"  class="table table-borderder" >
     <tr>

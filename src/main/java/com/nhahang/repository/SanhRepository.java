@@ -15,6 +15,7 @@ import java.util.List;
 public interface SanhRepository {
     List<Sanh> getSanh();
     List<Sanh> getSanh(String idSanh);
+    List<Sanh> getSanhByState(String idSanh);
     Sanh getSanhById(int idSanh);
     boolean addOrUpdateSanh(Sanh sanh);
     boolean deleteSanh(int idSanh);

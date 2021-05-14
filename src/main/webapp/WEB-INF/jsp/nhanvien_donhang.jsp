@@ -13,8 +13,8 @@
 </style>
 </br>
 <h1 >Thông tin đơn hàng</h1>
-<!--<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHangView" />/?idDonHang=0" 
-                           >+</a></fast-button>-->
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/nvdhview" />/?idDonHang=0" 
+                           >+</a></fast-button>
 
 
 

@@ -103,6 +103,13 @@ public class NhanVienRepositoryImpl implements NhanVienRepository{
         
         return s.get(NhanVien.class, idNhanVien);
     }
+    @Override
+    @Transactional
+    public NhanVien getNhanVienByName(String tenNhanVien){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        return s.get(NhanVien.class, tenNhanVien);
+    }
 
     
 }

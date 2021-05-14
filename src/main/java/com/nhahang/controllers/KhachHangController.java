@@ -42,6 +42,7 @@ public class KhachHangController {
         }
         return "khachhang";
     }
+   
     
     
 }

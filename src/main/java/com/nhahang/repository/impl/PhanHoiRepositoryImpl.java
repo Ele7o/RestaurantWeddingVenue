@@ -52,6 +52,24 @@ public class PhanHoiRepositoryImpl implements PhanHoiRepository {
     }
     @Override
     @Transactional
+    public List<PhanHoi> getPhanHoiByType(String kw){
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+
+        CriteriaQuery<PhanHoi> query = builder.createQuery(PhanHoi.class);
+        Root root = query.from(PhanHoi.class);
+        query.select(root);
+        
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("loaiPhanHoi").as(String.class), 
+                                            String.format("%%%s%%", kw));
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+    }
+    @Override
+    @Transactional
     public List<PhanHoi> getPhanHoi() {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         Query q = s.createQuery("From PhanHoi");

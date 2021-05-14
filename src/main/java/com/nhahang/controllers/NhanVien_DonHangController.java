@@ -37,7 +37,7 @@ public class NhanVien_DonHangController {
     public void addAttribute(Model model, HttpSession session){
         model.addAttribute("nvdh",this.nhanVien_donHangService.getNhanVien_DonHangs());
         model.addAttribute("nhanvien2",this.nhanVienService.getNhanViens());
-        model.addAttribute("donhang2",this.donHangService.getDonHangs());
+        model.addAttribute("donhang3",this.donHangService.getDonHangs());
     }
     @RequestMapping("/")
     public String index(Model model, @RequestParam(name="idNv_Dh",required = false)String idNv_Dh){

@@ -52,6 +52,22 @@ public class SanhRepositoryImpl implements SanhRepository {
         Query q = s.createQuery(query);
         return q.getResultList();
     }
+    @Override
+    @Transactional
+    public List<Sanh> getSanhByState(String idSanh) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<Sanh> query = builder.createQuery(Sanh.class);
+        Root root = query.from(Sanh.class);
+        query.select(root);
+        if(idSanh != null && !idSanh.isEmpty()){
+            Predicate p = builder.like(root.get("tinhTrang").as(String.class), String.format("%%%s%%",idSanh));
+            query = query.where(p);
+        }
+        Query q = s.createQuery(query);
+        return q.getResultList();
+    }
 
     @Override
     @Transactional

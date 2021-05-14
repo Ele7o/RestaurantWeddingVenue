@@ -11,6 +11,10 @@
 <h1 >SẢNH</h1>
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/SanhView" />/?idSanh=0" 
                            >+</a></fast-button>
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/Sanh/loai" />/?loai=Full" 
+                           >Các sảnh đã đầy</a></fast-button>
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/Sanh/loai" />/?loai=Empty" 
+                           >Các sảnh trống</a></fast-button>
 <style>
     #table{
         color:white;

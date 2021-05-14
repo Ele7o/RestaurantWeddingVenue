@@ -37,6 +37,8 @@ public class Sanh {
     
     @OneToMany(mappedBy = "sanh",fetch = FetchType.EAGER)
     private List<DonHang> donHang;
+    
+    
     /**
      * @return the idSanh
      */

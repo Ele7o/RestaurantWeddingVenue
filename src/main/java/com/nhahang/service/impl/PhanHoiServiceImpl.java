@@ -26,6 +26,10 @@ public class PhanHoiServiceImpl implements PhanHoiService{
         return this.phanHoiRepository.getPhanHoi(kw);
     }
     @Override
+    public List<PhanHoi> getPhanHoiByType(String kw){
+        return this.phanHoiRepository.getPhanHoiByType(kw);
+    }
+    @Override
     public List<PhanHoi> getPhanHoi() {
         return this.phanHoiRepository.getPhanHoi(); //To change body of generated methods, choose Tools | Templates.
     }

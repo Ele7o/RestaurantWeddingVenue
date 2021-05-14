@@ -44,4 +44,8 @@ public class NhanVienServiceImpl implements NhanVienService{
     public NhanVien getNhanVienById(int idNhanVien) {
         return this.nhanVienRepository.getNhanVienById(idNhanVien);
     }
+    @Override
+    public NhanVien getNhanVienByName(String tenNhanVien){
+        return this.nhanVienRepository.getNhanVienByName(tenNhanVien);
+    }
 }

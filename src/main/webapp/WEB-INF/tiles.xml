@@ -94,5 +94,8 @@
         <put-attribute name="title" value="danh sach nhan vien"/>
         <put-attribute name="content" value="/WEB-INF/jsp/nhanvien_donhang.jsp"/>
     </definition>
-   
+    <definition name="nvdhview" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin nhan vien"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nhanvien_donhangaod.jsp"/>
+    </definition>
 </tiles-definitions>

@@ -44,4 +44,12 @@ public class SanhController {
         }
         return "sanh";
     }
+    @RequestMapping("/loai")
+    public String index3(Model model, @RequestParam(name="loai",required = true)String loai){
+        if(loai != null){
+            model.addAttribute("sanh",this.sanhService.getSanhByState(loai));
+        }
+        return "sanh";
+    }
+    
 }

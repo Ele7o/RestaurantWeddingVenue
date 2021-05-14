@@ -58,7 +58,7 @@ public class DonHangController {
     public String index2(Model model, @RequestParam(name="idSanh",required = true)String idSanh){
 
         
-            model.addAttribute("donhang",this.sanhService.getSanhById(Integer.parseInt(idSanh)));
+            model.addAttribute("donhang",this.sanhService.getSanhById(Integer.parseInt(idSanh)).getDonHang());
         
              return "donhang";
     }

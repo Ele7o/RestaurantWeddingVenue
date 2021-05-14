@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group"  style="margin-top: 20px;">
-                <label><spring:message code="sanh.ghiChu" /></label>
+                <label><spring:message code="frm.ghiChu" /></label>
                 <form:input cssClass="form-control" path="ghiChu" />
             </div>
             <div style="margin-top: 20px;">

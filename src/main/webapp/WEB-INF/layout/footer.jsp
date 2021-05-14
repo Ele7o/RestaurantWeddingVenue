@@ -21,7 +21,7 @@
             <h1 style="padding:10px">NAM</h1>
         </td>
         <td>
-            <img src="/NhaHangTiecCuoi/resources/img/footer.gif">
+<!--            <img src="/NhaHangTiecCuoi/resources/img/footer.gif">-->
         </td>
     </tr>
     </table>

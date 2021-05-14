@@ -26,7 +26,7 @@
         <th>đơn hàng</th>
         <th>dịch vụ</th>
         <th>Số lượng</th>
-        <th>Ghi chú</th>
+        <th>Giá tạm tính</th>
         <th></th>
         <th></th>
     </tr>

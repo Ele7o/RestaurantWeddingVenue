@@ -16,7 +16,12 @@
 <h1 >DANH SÁCH CÁC ĐƠN HÀNG</h1>
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHangView" />/?idDonHang=0" 
                            >+</a></fast-button>
-
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHang" />/" 
+                           >Toàn bộ danh sách</a></fast-button>
+<c:forEach items="${sanh}" var="snh">
+    <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/DonHang/sanh" />/?idSanh=${snh.idSanh}" 
+                           >Sảnh ${snh.idSanh}</a></fast-button>   
+</c:forEach>
 
 
 

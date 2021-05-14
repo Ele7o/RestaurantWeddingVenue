@@ -16,8 +16,10 @@
 <h1 >CÁC PHẢN HỒI</h1>
 <fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/PhanHoiView" />/?idPhanHoi=0" 
                            >+</a></fast-button>
-
-
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/PhanHoi/loai" />/?loai=nhanvien" 
+                           >Phản hồi nhân viên</a></fast-button>
+<fast-button appearance="accent"><a style="text-decoration: none; color:white"href="<c:url value="/PhanHoi/loai" />/?loai=dichvu" 
+                           >Phản hồi dịch vụ</a></fast-button>
 
 <table id="table"  class="table table-borderer" >
     <tr>
